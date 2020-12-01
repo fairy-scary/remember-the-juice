@@ -11,8 +11,6 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
-//asyncHandler, models
-
 // view engine setup
 app.set('view engine', 'pug');
 
