@@ -12,33 +12,63 @@
     width: 800px;
 }
 
+::placeholder {
+    color:white;
+    opacity: 1;
+}
+
 input {
     width: 600px;
     height: 50px;
+    background-color: rgba(255,255,255,.25);
+    border: 0px;
+    border-radius: 5px;
     padding: 10px;
-    font-size: 20px;
+    font-family: 'Lilita One', cursive;
+    font-size: 30px;
+    color: white;
     margin-bottom: 20px;
     box-sizing: border-box;
 }
 
 .loginButton {
-    background-color: red;
+    background-image: url("redbutton.png");
+    background-size: cover;
     border: none;
-    color: white;
-    padding: 15px 32px;
+    color: rgba(255,255,255,.75);
+    font-size: 35px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    padding: 5px 25px 10px 25px;
     text-align: center;
     text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.30);
     display: inline-block;
-    font-size: 25px;
+    
 }
 
 .signUpButton {
-    background-color: blue;
+    background-image: url("bluebutton.png");
+    background-size: cover;
     border: none;
-    color: white;
-    padding: 15px 32px;
+    color: rgba(255,255,255,.75);
+    font-size: 35px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    padding: 5px 25px 10px 25px;
     text-align: center;
     text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.30);
     display: inline-block;
-    font-size: 25px;
+}
+
+.authFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-between;
 }
