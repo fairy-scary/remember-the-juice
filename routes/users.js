@@ -41,9 +41,10 @@ router.post('/', csrfProtection, loginValidators,
 
       if (user !== null) {
         const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+        console.log(passwordMatch)
 
         if (passwordMatch) {
-          return res.redirect('/');
+          return res.redirect('/profile');
         }
       }
       errors.push('Login failed for the provided username and password. Please try again.');
