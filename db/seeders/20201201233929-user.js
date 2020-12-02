@@ -8,7 +8,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     }])
-    
+
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
@@ -29,5 +29,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
+    return queryInterface.bulkDelete('Users', null, {});
   }
 };
