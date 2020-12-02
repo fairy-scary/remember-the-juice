@@ -38,6 +38,7 @@ router.post('/', csrfProtection, loginValidators,
 
     if (validatorErrors.isEmpty()) {
       const user = await db.User.findOne({ where: { username } });
+      console.log(user)
 
       if (user !== null) {
         const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
