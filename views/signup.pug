@@ -11,14 +11,15 @@ block content
       img(src="./images/logo-large.png" alt="Remember the Juice Logo" class="logoLarge")
       div(class="authForms")
           form(method="post" action="/signup")
-          input(type="text" name="username" placeholder="username" required)
-          br
-          input(type="text" name="email" placeholder="email" required)
-          br
-          input(type="password" name="password" placeholder="password" required)
-          br
-          input(type="password" name="confirmPassword" placeholder="confirm password" required)
-          br
-          button(class="signUpButton" type="submit" ) Sign me up!
-          p or
-          button(class="loginButton" src="/") Return to Login
+            input(type='hidden' name='_csrf' value=csrfToken)
+            input(type="text" name="username" placeholder="username" required)
+            br
+            input(type="text" name="email" placeholder="email" required)
+            br
+            input(type="password" name="password" placeholder="password" required)
+            br
+            input(type="password" name="confirmPassword" placeholder="confirm password" required)
+            br
+            button(class="signUpButton" type="submit" ) Sign me up!
+            p or
+            button(class="loginButton" src="/") Return to Login
