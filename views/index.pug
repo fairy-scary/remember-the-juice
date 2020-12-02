@@ -11,10 +11,11 @@ block content
       img(src="./images/logo-large.png" alt="Remember the Juice Logo" class="logoLarge")
       div(class="authForms")
           form(method="post" action="/")
-          input(type="text" name="username" placeholder="username" required)
+          input(type="text" name="username" placeholder="USERNAME..." required)
           br
-          input(type="password" name="passowrd" placeholder="password" required)
+          input(type="password" name="passowrd" placeholder="PASSWORD..." required)
           br
-          button(class="loginButton" type="submit") Login
-          p or
-          button(class="signUpButton" type="button" src="/signup") Sign Up
+          div(class="authFooter")
+            button(class="loginButton" type="submit") Login
+            h2 OR
+            button(class="signUpButton" type="button" src="/signup") Sign Up
