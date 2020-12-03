@@ -10,7 +10,7 @@ block content
    div(class="authContainer")
       img(src="./images/logo-large.png" alt="Remember the Juice Logo" class="logoLarge")
       div(class="authForms")
-          form(method="post" action="/signup")     
+          form(method="post" action="/users/signup")     
             input(type='hidden' name='_csrf' value=csrfToken)
             input(type="text" name="username" placeholder="USERNAME..." required)
             br
