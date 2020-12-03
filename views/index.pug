@@ -9,13 +9,18 @@ append head
 block content
    div(class="authContainer")
       img(src="./images/logo-large.png" alt="Remember the Juice Logo" class="logoLarge")
+      if errors
+        ul
+          each error in errors
+            li= error  
       div(class="authForms")
-          form(method="post" action="/")
-          input(type="text" name="username" placeholder="USERNAME..." required)
-          br
-          input(type="password" name="passowrd" placeholder="PASSWORD..." required)
-          br
-          div(class="authFooter")
-            button(class="loginButton" type="submit") Login
-            h2 OR
-            button(class="signUpButton" type="button" src="/signup") Sign Up
+          form(method="post" action="/users")
+            input(type='hidden' name='_csrf' value=csrfToken)
+            input(type="text" name="username" placeholder="USERNAME ..." required)
+            br
+            input(type="password" name="password" placeholder="PASSWORD ..." required)
+            br
+            div(class="authFooter")
+              button(class="loginButton" type="submit") Login
+              h2 OR
+              button(class="signUpButton" type="button" src="/signup") Sign Up

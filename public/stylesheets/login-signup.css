@@ -5,11 +5,12 @@
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-top: 50px;
+    margin-top: 0px;
+    padding: 0px;
 }
 
 .logoLarge {
-    width: 800px;
+    width: 700px;
 }
 
 ::placeholder {
@@ -18,16 +19,16 @@
 }
 
 input {
-    width: 600px;
-    height: 50px;
+    width: 500px;
+    height: 40px;
     background-color: rgba(255,255,255,.25);
     border: 0px;
     border-radius: 5px;
     padding: 10px;
     font-family: 'Lilita One', cursive;
-    font-size: 30px;
+    font-size: 25px;
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     box-sizing: border-box;
 }
 
@@ -36,7 +37,7 @@ input {
     background-size: cover;
     border: none;
     color: rgba(255,255,255,.75);
-    font-size: 35px;
+    font-size: 25px;
     font-family: 'Quicksand', sans-serif;
     font-weight: 500;
     padding: 5px 25px 10px 25px;
@@ -53,7 +54,7 @@ input {
     background-size: cover;
     border: none;
     color: rgba(255,255,255,.75);
-    font-size: 35px;
+    font-size: 25px;
     font-family: 'Quicksand', sans-serif;
     font-weight: 500;
     padding: 5px 25px 10px 25px;

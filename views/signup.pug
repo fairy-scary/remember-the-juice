@@ -12,15 +12,15 @@ block content
       div(class="authForms")
           form(method="post" action="/signup")     
             input(type='hidden' name='_csrf' value=csrfToken)
-            input(type="text" name="username" placeholder="USERNAME..." required)
+            input(type="text" name="username" placeholder="USERNAME ..." required)
             br
-            input(type="text" name="email" placeholder="EMAIL..." required)
+            input(type="text" name="email" placeholder="EMAIL ..." required)
             br
-            input(type="password" name="password" placeholder="PASSWORD...accordion-heading" required)
+            input(type="password" name="password" placeholder="PASSWORD ..." required)
             br
-            input(type="password" name="confirmPassword" placeholder="CONFIRM PASSWORD..." required)
+            input(type="password" name="confirmPassword" placeholder="CONFIRM PASSWORD ..." required)
             br
             div(class="authFooter")
-              button(class="signUpButton" type="submit" ) Sign me up!
-              p or
-              button(class="loginButton" src="/") Return to Login
+              button(class="signUpButton" type="submit" ) Sign up
+              h2 OR
+              button(class="loginButton" src="/") Back to Login
