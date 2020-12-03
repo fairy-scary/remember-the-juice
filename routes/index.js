@@ -49,7 +49,7 @@ router.post('/', csrfProtection, loginValidators,
 
         if (passwordMatch) {
           loginUser(req, res, user);
-          return res.redirect(`/users/profile/${user.id}`);
+          return res.redirect(`/users/${user.id}`);
         }
       }
       errors.push('Login failed for the provided username and password. Please try again.');
@@ -75,10 +75,9 @@ router.get('/users/demo', asyncHandler(async (req, res) => {
   res.render('main')
 }))
 
-router.post('/logout', (req, res) => {
-  logoutUser(req, res);
-  res.redirect('/');
-});
+
+// Practice AJAX
+router.get
 
 module.exports = router;
 
