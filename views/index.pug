@@ -9,12 +9,16 @@ append head
 block content
    div(class="authContainer")
       img(src="./images/logo-large.png" alt="Remember the Juice Logo" class="logoLarge")
+      if errors
+        ul
+          each error in errors
+            li= error  
       div(class="authForms")
           form(method="post" action="/users")
             input(type='hidden' name='_csrf' value=csrfToken)
-            input(type="text" name="username" placeholder="USERNAME..." required)
+            input(type="text" name="username" placeholder="USERNAME ..." required)
             br
-            input(type="password" name="password" placeholder="PASSWORD..." required)
+            input(type="password" name="password" placeholder="PASSWORD ..." required)
             br
             div(class="authFooter")
               button(class="loginButton" type="submit") Login
