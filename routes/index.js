@@ -65,6 +65,16 @@ router.post('/', csrfProtection, loginValidators,
     });
   }));
 
+router.post('/demo', asyncHandler(async (req, res) => {
+  const user = await db.User.findOne({ where: { username: 'demo' } })
+  loginUser(req, res, user);
+  return res.redirect('/users/demo');
+}));
+
+router.get('/users/demo', asyncHandler(async (req, res) => {
+  res.render('main')
+}))
+
 router.post('/logout', (req, res) => {
   logoutUser(req, res);
   res.redirect('/');
