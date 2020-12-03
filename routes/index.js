@@ -76,6 +76,9 @@ router.get('/users/demo', asyncHandler(async (req, res) => {
 }))
 
 
+// Practice AJAX
+router.get
+
 module.exports = router;
 
 
