@@ -56,7 +56,7 @@ const userValidators = [
 
 
 
-// After clicking signup button
+// After clicking signup button 
 router.post('/signup', csrfProtection, userValidators,
   asyncHandler(async (req, res) => {
     const { username, email, password, } = req.body;
