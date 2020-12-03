@@ -3,6 +3,7 @@ var router = express.Router();
 
 const csrf = require('csurf');
 const { check, validationResult } = require('express-validator');
+const { loginUser } = require('../auth');
 
 const db = require('../db/models');
 
@@ -40,13 +41,14 @@ router.post('/', csrfProtection, loginValidators,
 
     if (validatorErrors.isEmpty()) {
       const user = await db.User.findOne({ where: { username } });
-      console.log(user)
+
 
       if (user !== null) {
         const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
-        console.log(passwordMatch)
+
 
         if (passwordMatch) {
+          loginUser(req, res, user);
           return res.redirect('/profile');
         }
       }
