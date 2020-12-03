@@ -1,0 +1,51 @@
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/demo.css")
+  link(rel="stylesheet" href="/stylesheets/navbar.css")
+  //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
+
+block content
+    div.navbar
+        button.navbar_hamburger hamburger menu
+        div.navbar_searchbar Search here
+        div.navbar_theme_wrapper
+            div.fruit_red
+                img(src="./images/fruits/fruit_red.png" alt="strawberry" class="navbar_themes")
+            div.fruit_orange
+                img(src="./images/fruits/fruit_orange.png" alt="pineapple" class="navbar_themes")
+            div.fruit_yellow
+                img(src="./images/fruits/fruit_yellow.png" alt="lemon" class="navbar_themes")
+            div.fruit_green
+                img(src="./images/fruits/fruit_green.png" alt="kiwi" class="navbar_themes")
+            div.fruit_blue
+                img(src="./images/fruits/fruit_blue.png" alt="blueberry" class="navbar_themes")
+            div.fruit_purple
+                img(src="./images/fruits/fruit_purple.png" alt="grape" class="navbar_themes")
+
+    div.main
+        div.main_left
+            img(src="./images/logo-large.png" class="logoSmall")
+            form().main_left_menu
+                div.inbox
+                    p.main_left_menu_title Inbox
+                    p.inbox_all-tasks All Tasks
+                    p.inbox_trash Trash
+                div.lists
+                    p.main_left_menu_title Lists
+                    p.lists_personal Personal
+                    p.lists_work Work
+
+        div.main_right
+            div.main_right_topbox
+                div.inbox Inbox
+                form().tasks_category
+                    p.tasks_incomplete Tasks
+                    p.tasks_complete Completed
+            div.main_right_botbox
+                form().tasks
+                    input.tasks_input(type="text" name="taskInput" placeholder="Add task here...")
+                    checkbox.task1 Buy juice
+                    checkbox.task2 Clean out garage
