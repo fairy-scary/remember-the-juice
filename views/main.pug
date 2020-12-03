@@ -2,7 +2,7 @@ extends layout
 
 append head
   //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/demo.css")
+  link(rel="stylesheet" href="/stylesheets/main.css")
   link(rel="stylesheet" href="/stylesheets/navbar.css")
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
@@ -46,6 +46,6 @@ block content
                     p.tasks_complete Completed
             div.main_right_botbox
                 form().tasks
-                    input.tasks_input(type="text" name="taskInput" placeholder="Add task here...")
-                    checkbox.task1 Buy juice
-                    checkbox.task2 Clean out garage
+                    input(type="text" name="taskInput" placeholder="Add task here...")
+                    //- input(type="checkbox") Buy juice
+                    //- input(type="checkbox") Clean out garage
