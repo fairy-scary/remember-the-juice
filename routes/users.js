@@ -4,6 +4,7 @@ const csrf = require('csurf');
 const { check, validationResult } = require('express-validator');
 
 const db = require('../db/models');
+const { loginUser } = require('../auth');
 
 const csrfProtection = csrf({ cookie: true });
 
@@ -74,7 +75,7 @@ router.post('/signup', csrfProtection, userValidators,
       user.hashedPassword = hashedPassword;
       await user.save();
       loginUser(req, res, user);
-      res.redirect('/');
+      res.redirect(`/users/profile/:${user.id}`);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render('signup', {

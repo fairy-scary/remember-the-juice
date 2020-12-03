@@ -3,7 +3,7 @@ var router = express.Router();
 
 const csrf = require('csurf');
 const { check, validationResult } = require('express-validator');
-const { loginUser } = require('../auth');
+const { loginUser, logoutUser } = require('../auth');
 
 const db = require('../db/models');
 
@@ -49,7 +49,7 @@ router.post('/', csrfProtection, loginValidators,
 
         if (passwordMatch) {
           loginUser(req, res, user);
-          return res.redirect('/profile');
+          return res.redirect(`/users/profile/${user.id}`);
         }
       }
       errors.push('Login failed for the provided username and password. Please try again.');
@@ -64,6 +64,11 @@ router.post('/', csrfProtection, loginValidators,
       csrfToken: req.csrfToken(),
     });
   }));
+
+router.post('/logout', (req, res) => {
+  logoutUser(req, res);
+  res.redirect('/');
+});
 
 module.exports = router;
 
