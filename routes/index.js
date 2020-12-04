@@ -65,36 +65,64 @@ router.post('/', csrfProtection, loginValidators,
     });
   }));
 
-router.post('/demo', asyncHandler(async (req, res) => {
-  const user = await db.User.findOne({ where: { username: 'demo' } })
+router.post('/:id', asyncHandler(async (req, res) => {
+  const user = await db.User.findByPk(id);
   loginUser(req, res, user);
-  return res.redirect('/users/demo');
+  return res.redirect('/users/:id');
 }));
 
-// router.get('/users/demo', asyncHandler(async (req, res) => {
+// router.get('/users/:id', asyncHandler(async (req, res) => {
 //   res.render('main')
 // }))
 
+router.post('/users/:id/lists', asyncHandler(async(req, res) => {
+  console.log('..............')
+  const userId = parseInt(req.params.id, 10);
+  const { listName } = req.body
+  console.log(listName)
+  const newList = await db.UserList.build({ listName, userId });
+  await newList.save()
 
-// Tasks for demo user
-router.post('/users/demo', asyncHandler(async (req, res) => {
-  const user = await db.User.findOne({ where: { username: 'demo4' } });
-  const userId = user.id
+  res.redirect('/users/:id')
+  
+}));
 
-  const id = await db.UserList.findOne({ where: { userId: userId } })
+// Tasks for :id user
+router.post('/users/:id', asyncHandler(async (req, res) => {
+  console.log("*********")
+  const userId = parseInt(req.params.id, 10);
+  console.log(userId)
+  const user = await db.User.findByPk(userId);
+
+  const id = await db.UserList.findOne({ 
+    where: { 
+      [Op.and]: [ 
+        { userId: userId },
+        { listName: 'Personal' },
+      ],  
+    }, 
+  });
   const userListId = id.id
 
   const { taskContent } = req.body
   const task = await db.Task.build({ taskContent, userId, userListId });
   await task.save()
-  res.redirect('/users/demo')
+
+  res.redirect(`/users/${userId}`)
 }));
 
-router.get('/users/demo', asyncHandler(async (req, res) => {
-  const allTasks = await db.Task.findAll({ where: { userId: 22 } })
+
+
+router.get('/users/:id', asyncHandler(async (req, res) => {
+  const userId = req.params.id;
+  const user = await db.User.findByPk(userId);
+ 
+  const allTasks = await db.Task.findAll({ where: { userId: userId } })
+  
+  const lists = await db.UserList.findAll({ where: { userId: userId } })
 
   // console.log('*************' + users[0].username)
-  res.render('main', { allTasks });
+  res.render('main', { allTasks, lists, user });
 
 }));
 
