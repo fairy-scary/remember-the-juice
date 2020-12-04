@@ -1,5 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const sequelize = require('sequelize')
+const op = sequelize.Op
 
 const csrf = require('csurf');
 const { check, validationResult } = require('express-validator');
@@ -75,28 +77,16 @@ router.post('/:id', asyncHandler(async (req, res) => {
 //   res.render('main')
 // }))
 
-router.post('/users/:id/lists', asyncHandler(async(req, res) => {
-  console.log('..............')
-  const userId = parseInt(req.params.id, 10);
-  const { listName } = req.body
-  console.log(listName)
-  const newList = await db.UserList.build({ listName, userId });
-  await newList.save()
-
-  res.redirect('/users/:id')
-  
-}));
-
 // Tasks for :id user
 router.post('/users/:id', asyncHandler(async (req, res) => {
-  console.log("*********")
+ 
   const userId = parseInt(req.params.id, 10);
-  console.log(userId)
+ 
   const user = await db.User.findByPk(userId);
 
   const id = await db.UserList.findOne({ 
     where: { 
-      [Op.and]: [ 
+      [op.and]: [ 
         { userId: userId },
         { listName: 'Personal' },
       ],  
@@ -122,7 +112,7 @@ router.get('/users/:id', asyncHandler(async (req, res) => {
   const lists = await db.UserList.findAll({ where: { userId: userId } })
 
   // console.log('*************' + users[0].username)
-  res.render('main', { allTasks, lists, user });
+  res.render('main', { allTasks, lists, user, userId });
 
 }));
 

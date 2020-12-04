@@ -36,7 +36,7 @@ block content
                             each listName in lists
                                 li= listName.listName
                         div.new_list
-                        form(method="post" action="/users/:id/lists")
+                        form(method="post" action=`/lists/${userId}`)
                         input(type="text" name="listName" placeholder="Create list...")
                         button(type="submit")
                     
@@ -48,7 +48,7 @@ block content
                     p.tasks_incomplete Tasks
                     p.tasks_complete Completed
             div.main_right_botbox
-                form(action="/users/:id" method="post" class="task")
+                form(action=`/users/${userId}` method="post" class="task")
                     input(type="text" name="taskContent" placeholder="Add task here...")
                     button(type="submit")
                     if allTasks
