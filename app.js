@@ -22,13 +22,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(sessionSecret));
-app.use(session({
-  name: 'remember-the-juice.sid',
-  secret: sessionSecret,
-  resave: false,
-  saveUninitialized: false,
-}));
-app.use(restoreUser);
+// app.use(session({
+//   name: 'remember-the-juice.sid',
+//   secret: sessionSecret,
+//   resave: false,
+//   saveUninitialized: false,
+// }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set up session middleware
@@ -42,6 +42,7 @@ app.use(
     resave: false,
   })
 );
+app.use(restoreUser);
 app.use((req, res, next) => { console.log(req.session)
 next()});
 
