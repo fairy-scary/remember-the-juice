@@ -1,0 +1,95 @@
+.main {
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 1fr;
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+    position: absolute;
+
+}
+
+.main_left {
+    background-color: rgb(60, 240, 171);
+    display: grid;
+    grid-template-rows: 150px 1fr;
+    width: 250px;
+
+}
+
+.logoSmall {
+    width: 100%;
+    height: auto;
+}
+
+.main_left_menu {
+    display: grid;
+    grid-template-rows: 130px 1fr;
+    height: 100%;
+    padding-left: 50px;
+    justify-items: left;
+}
+
+.inbox {
+    font-size: 16px;
+}
+
+.lists {
+    font-size: 16px;
+}
+
+.main_left_menu_title {
+    color: rgb(108, 108, 255);
+    font-weight: bold;
+}
+
+.main_right {
+    display: grid;
+    grid-template-rows: 120px 1fr;
+    height: 100%;
+}
+
+.main_right_topbox {
+    background-color: rgb(173, 255, 200);
+    display: grid;
+    grid-template-rows: 30px 50px;
+    height: 100%;
+    padding: 20px;
+
+}
+
+.testupdate {
+    height: 100%;
+}
+
+.tasks_category {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50px 50px;
+    grid-template-rows: 25px 50px;
+
+}
+
+.tasks_incomplete {
+    color: rgb(108, 108, 255);
+}
+
+.main_right_botbox{
+    background-color: whitesmoke;
+
+    height: 200px;
+    padding: 10px;
+}
+
+.tasks {
+    display: grid;
+    grid-template-rows: 20px 20px 20px 1fr;
+    font-size: 16px;
+    padding: 2px;
+}
+
+.task {
+
+}
