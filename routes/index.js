@@ -71,13 +71,34 @@ router.post('/demo', asyncHandler(async (req, res) => {
   return res.redirect('/users/demo');
 }));
 
+// router.get('/users/demo', asyncHandler(async (req, res) => {
+//   res.render('main')
+// }))
+
+
+// Tasks for demo user
+router.post('/users/demo', asyncHandler(async (req, res) => {
+  const user = await db.User.findOne({ where: { username: 'demo4' } });
+  const userId = user.id
+
+  const id = await db.UserList.findOne({ where: { userId: userId } })
+  const userListId = id.id
+
+  const { taskContent } = req.body
+  const task = await db.Task.build({ taskContent, userId, userListId });
+  await task.save()
+  res.redirect('/users/demo')
+}));
+
 router.get('/users/demo', asyncHandler(async (req, res) => {
-  res.render('main')
-}))
+  const allTasks = await db.Task.findAll({ where: { userId: 22 } })
+
+  // console.log('*************' + users[0].username)
+  res.render('main', { allTasks });
+
+}));
 
 
-// Practice AJAX
-router.get
 
 module.exports = router;
 
