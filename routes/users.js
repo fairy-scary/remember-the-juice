@@ -107,12 +107,12 @@ router.post('/signup', csrfProtection, userValidators,
 
 
 // User profile page
-router.get(`/:id`, requireAuth, asyncHandler(async (req, res) => {
-  const userId = parseInt(req.params.id, 10);
-  const user = await db.User.findOne({ where: { id: userId } });
+// router.get(`/:id`, requireAuth, asyncHandler(async (req, res) => {
+//   const userId = parseInt(req.params.id, 10);
+//   const user = await db.User.findOne({ where: { id: userId } });
 
-  res.render('main', { user, })
-}));
+//   res.render('main', { user, })
+// }));
 
 
 // Logout 

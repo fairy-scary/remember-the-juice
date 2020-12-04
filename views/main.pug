@@ -13,17 +13,17 @@ block content
         div.navbar_searchbar Search here
         div.navbar_theme_wrapper
             div.fruit_red
-                img(src="./images/fruits/fruit_red.png" alt="strawberry" class="navbar_themes")
+                img(src="../images/fruits/fruit_red.png" alt="strawberry" class="navbar_themes")
             div.fruit_orange
-                img(src="./images/fruits/fruit_orange.png" alt="pineapple" class="navbar_themes")
+                img(src="../images/fruits/fruit_orange.png" alt="pineapple" class="navbar_themes")
             div.fruit_yellow
-                img(src="./images/fruits/fruit_yellow.png" alt="lemon" class="navbar_themes")
+                img(src="../images/fruits/fruit_yellow.png" alt="lemon" class="navbar_themes")
             div.fruit_green
-                img(src="./images/fruits/fruit_green.png" alt="kiwi" class="navbar_themes")
+                img(src="../images/fruits/fruit_green.png" alt="kiwi" class="navbar_themes")
             div.fruit_blue
-                img(src="./images/fruits/fruit_blue.png" alt="blueberry" class="navbar_themes")
+                img(src="../images/fruits/fruit_blue.png" alt="blueberry" class="navbar_themes")
             div.fruit_purple
-                img(src="./images/fruits/fruit_purple.png" alt="grape" class="navbar_themes")
+                img(src="../images/fruits/fruit_purple.png" alt="grape" class="navbar_themes")
 
     div.main
         div.main_left
@@ -45,7 +45,13 @@ block content
                     p.tasks_incomplete Tasks
                     p.tasks_complete Completed
             div.main_right_botbox
-                form().tasks
-                    input(type="text" name="taskInput" placeholder="Add task here...")
+                form(action="/users/demo" method="post" class="task")
+                    input(type="text" name="taskContent" placeholder="Add task here...")
+                    button(type="submit")
+                    if allTasks
+                        ul
+                            each task in allTasks
+                                li=task.taskContent
+
                     //- input(type="checkbox") Buy juice
                     //- input(type="checkbox") Clean out garage
