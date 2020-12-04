@@ -51,7 +51,8 @@ router.post('/', csrfProtection, loginValidators,
 
         if (passwordMatch) {
           loginUser(req, res, user);
-          return res.redirect(`/users/${user.id}`);
+          req.session.save(err => { res.redirect(`/users/${user.id}`) })
+          return;
         }
       }
       errors.push('Login failed for the provided username and password. Please try again.');
@@ -67,11 +68,11 @@ router.post('/', csrfProtection, loginValidators,
     });
   }));
 
-router.post('/:id', asyncHandler(async (req, res) => {
-  const user = await db.User.findByPk(id);
-  loginUser(req, res, user);
-  return res.redirect('/users/:id');
-}));
+// router.post('/:id', asyncHandler(async (req, res) => {
+//   const user = await db.User.findByPk(id);
+//   loginUser(req, res, user);
+//   return res.redirect('/users/:id');
+// }));
 
 // router.get('/users/:id', asyncHandler(async (req, res) => {
 //   res.render('main')
