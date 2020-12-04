@@ -92,6 +92,7 @@ router.post('/signup', csrfProtection, userValidators,
       await user.save();
       // Create Personal list for each new user
       await db.UserList.create({ listName: 'Personal', userId: user.id });
+      await db.UserList.create({ listName: 'Trash', userId: user.id });
       loginUser(req, res, user);
       res.redirect(`/users/:${user.id}`);
     } else {
@@ -103,6 +104,8 @@ router.post('/signup', csrfProtection, userValidators,
         csrfToken: req.csrfToken(),
       });
     }
+
+
   }));
 
 

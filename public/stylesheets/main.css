@@ -11,6 +11,15 @@
 
 }
 
+ul {
+    list-style-type: none;
+    padding: 0px 0px 0px 0px;
+}
+
+li {
+    padding-bottom: 10px;
+}
+
 .main_left {
     background-color: rgb(60, 240, 171);
     display: grid;
@@ -38,6 +47,7 @@
 
 .lists {
     font-size: 16px;
+    padding-bottom: 0px;
 }
 
 .main_left_menu_title {
