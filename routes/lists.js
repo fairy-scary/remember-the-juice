@@ -15,15 +15,14 @@ const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).ca
 const bcrypt = require('bcryptjs');
 
 
-router.post('/lists/:id', asyncHandler(async(req, res) => {
-    console.log('..............')
-    const userId = parseInt(req.params.id, 10);
+router.post('/', asyncHandler(async(req, res) => {
+    console.log(req.session)
+    const userId = parseInt(req.session.auth.userId);
     const { listName } = req.body
-    console.log(listName)
     const newList = await db.UserList.build({ listName, userId });
     await newList.save()
   
-    res.redirect('/users/:id')
+    res.redirect('/users/'+userId)
     
   }));
 

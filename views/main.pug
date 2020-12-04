@@ -28,18 +28,17 @@ block content
     div.main
         div.main_left
             img(src="../images/default-logo.png" class="logoSmall")
-            form().main_left_menu
-                div.lists
-                    p.main_left_menu_title Lists
-                        ul
-                            li All
-                            each listName in lists
-                                li= listName.listName
-                        div.new_list
-                        form(method="post" action=`/lists/${userId}`)
-                        input(type="text" name="listName" placeholder="Create list...")
-                        button(type="submit")
-                    
+            div.lists
+                p.main_left_menu_title Lists
+                ul
+                    li All
+                    each listName in lists
+                        li= listName.listName
+                div.new_list
+                form(method="post" action=`/lists/`)
+                    input(type="text" name="listName" placeholder="Create list...")
+                    button(type="submit")
+                
 
         div.main_right
             div.main_right_topbox
@@ -51,10 +50,10 @@ block content
                 form(action=`/users/${userId}` method="post" class="task")
                     input(type="text" name="taskContent" placeholder="Add task here...")
                     button(type="submit")
-                    if allTasks
-                        ul
-                            each task in allTasks
-                                li=task.taskContent
+                if allTasks
+                    ul
+                        each task in allTasks
+                            li=task.taskContent
 
                     //- input(type="checkbox") Buy juice
                     //- input(type="checkbox") Clean out garage

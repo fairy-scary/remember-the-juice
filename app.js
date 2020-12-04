@@ -42,6 +42,8 @@ app.use(
     resave: false,
   })
 );
+app.use((req, res, next) => { console.log(req.session)
+next()});
 
 // create Session table if it doesn't already exist
 store.sync();
