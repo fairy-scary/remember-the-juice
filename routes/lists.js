@@ -42,7 +42,7 @@ router.post('/delete', asyncHandler(async (req, res) => {
   }
 }));
 
-// When a list is clicked on in left side menu, display the contents of that list
+// When a list is clicked on in left side menu, display the tasks in that list
 router.get(`/:userListId(\\d+)`, asyncHandler(async (req, res) => {
   if (!req.session.auth) {
     const userId = 3;
@@ -59,7 +59,6 @@ router.get(`/:userListId(\\d+)`, asyncHandler(async (req, res) => {
 
     const lists = await db.UserList.findAll({ where: { userId } });
 
-    console.log(req.session)
     const allTasks = await db.Task.findAll({ where: { userId, userListId } })
     res.render('list', { lists, allTasks });
   }
