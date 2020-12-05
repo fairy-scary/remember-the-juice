@@ -39,7 +39,11 @@ block content
                     input(type="text" name="listName" placeholder="Create list...")
                     button(type="submit")
                 p.main_left_menu_title Delete List
-                form(m)
+                form(method="post" action="/lists/delete")
+                    select(name="listName")
+                        each listName in lists
+                            option(value=listName.id)= listName.listName
+                    button(type="submit") Delete
 
 
         div.main_right

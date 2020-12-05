@@ -30,11 +30,17 @@ router.post('/', asyncHandler(async (req, res) => {
 // Delete a list
 router.post('/delete', asyncHandler(async (req, res) => {
   console.log(req.session)
-  const userId = req.session.auth.userId;
-  const { listName } = req.body
-  console.log(listName + '888888888888888888')
-  // UserList.destroy({where: {}})
-
+  if (!req.session.auth) {
+    const userId = 3;
+    const { listName } = req.body
+    await db.UserList.destroy({ where: { id: listName, userId } });
+    res.redirect('/demo');
+  } else {
+    const userId = req.session.auth.userId;
+    const { listName } = req.body
+    await db.UserList.destroy({ where: { id: listName, userId } });
+    res.redirect('/users');
+  }
 }));
 
 
