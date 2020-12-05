@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const sequelize = require('sequelize')
+const sequelize = require('sequelize');
 const op = sequelize.Op
 
 const csrf = require('csurf');
 const { check, validationResult } = require('express-validator');
-const { loginUser, logoutUser } = require('../auth');
+const { loginUser } = require('../auth');
 
 const db = require('../db/models');
 
@@ -18,7 +18,6 @@ const bcrypt = require('bcryptjs');
 // Login route
 router.get('/', csrfProtection, (req, res) => {
   res.render('index', {
-    title: 'Login',
     csrfToken: req.csrfToken(),
   });
 });
@@ -51,7 +50,7 @@ router.post('/', csrfProtection, loginValidators,
 
         if (passwordMatch) {
           loginUser(req, res, user);
-          req.session.save(err => { res.redirect(`/users/${user.id}`) })
+          req.session.save(err => { res.redirect(`/users`) })
           return;
         }
       }
@@ -61,70 +60,14 @@ router.post('/', csrfProtection, loginValidators,
     }
 
     res.render('index', {
-      title: 'Login',
       username,
       errors,
       csrfToken: req.csrfToken(),
     });
   }));
 
-// router.post('/:id', asyncHandler(async (req, res) => {
-//   const user = await db.User.findByPk(id);
-//   loginUser(req, res, user);
-//   return res.redirect('/users/:id');
-// }));
-
-// router.get('/users/:id', asyncHandler(async (req, res) => {
-//   res.render('main')
-// }))
-
-// Tasks for :id user
-router.post('/users/:id', asyncHandler(async (req, res) => {
- 
-  const userId = parseInt(req.params.id, 10);
- 
-  const user = await db.User.findByPk(userId);
-
-  const id = await db.UserList.findOne({ 
-    where: { 
-      [op.and]: [ 
-        { userId: userId },
-        { listName: 'Personal' },
-      ],  
-    }, 
-  });
-  const userListId = id.id
-
-  const { taskContent } = req.body
-  const task = await db.Task.build({ taskContent, userId, userListId });
-  await task.save()
-
-  res.redirect(`/users/${userId}`)
-}));
-
-
-
-router.get('/users/:id', asyncHandler(async (req, res) => {
-  const userId = req.params.id;
-  const user = await db.User.findByPk(userId);
- 
-  const allTasks = await db.Task.findAll({ where: { userId: userId } })
-  
-  const lists = await db.UserList.findAll({ where: { userId: userId } })
-
-  // console.log('*************' + users[0].username)
-  res.render('main', { allTasks, lists, user, userId });
-
-}));
-
-
 
 module.exports = router;
 
 
-
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'a/A Express Skeleton Home' });
-// });
 

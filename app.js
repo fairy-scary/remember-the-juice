@@ -8,7 +8,10 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const listRouter = require('./routes/lists')
+const listRouter = require('./routes/lists');
+const demoRouter = require('./routes/demo');
+const logoutRouter = require('./routes/logout');
+const tasksRouter = require('./routes/tasks');
 const { sessionSecret } = require('./config');
 const { restoreUser } = require('./auth');
 
@@ -22,12 +25,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(sessionSecret));
-// app.use(session({
-//   name: 'remember-the-juice.sid',
-//   secret: sessionSecret,
-//   resave: false,
-//   saveUninitialized: false,
-// }));
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -43,15 +41,20 @@ app.use(
   })
 );
 app.use(restoreUser);
-app.use((req, res, next) => { console.log(req.session)
-next()});
+app.use((req, res, next) => {
+  console.log(req.session)
+  next()
+});
 
 // create Session table if it doesn't already exist
 store.sync();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/lists', listRouter)
+app.use('/lists', listRouter);
+app.use('/demo', demoRouter);
+app.use('/logout', logoutRouter);
+app.use('/tasks', tasksRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
