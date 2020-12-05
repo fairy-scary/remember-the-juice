@@ -1,0 +1,62 @@
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/main.css")
+  link(rel="stylesheet" href="/stylesheets/navbar.css")
+  //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
+
+block content
+    div.navbar
+        button.navbar_hamburger hamburger menu
+        div.navbar_searchbar Search here
+        div.navbar_theme_wrapper
+            div.fruit_red
+                img(src="../images/fruits/fruit_red.png" alt="strawberry" class="navbar_themes")
+            div.fruit_orange
+                img(src="../images/fruits/fruit_orange.png" alt="pineapple" class="navbar_themes")
+            div.fruit_yellow
+                img(src="../images/fruits/fruit_yellow.png" alt="lemon" class="navbar_themes")
+            div.fruit_green
+                img(src="../images/fruits/fruit_green.png" alt="kiwi" class="navbar_themes")
+            div.fruit_blue
+                img(src="../images/fruits/fruit_blue.png" alt="blueberry" class="navbar_themes")
+            div.fruit_purple
+                img(src="../images/fruits/fruit_purple.png" alt="grape" class="navbar_themes")
+
+    div.main
+        div.main_left
+            img(src="./images/logo-large.png" class="logoSmall")
+            div.main_left_menu
+                div.inbox
+                    p.main_left_menu_title Inbox
+                    p.inbox_all-tasks All Tasks
+                    p.inbox_trash Trash
+                div.lists
+                    p.main_left_menu_title Lists
+                    p.lists_personal Personal
+                    p.lists_work Work
+
+        div.main_right
+            div.main_right_topbox
+                div Summary
+                    button#test_add_task add task
+                    button#test_complete_task complete task
+                div().tasks_category
+                    p.tasks_incomplete_update 0
+                    p.tasks_complete_update 0
+                    p.tasks_incomplete Tasks
+                    p.tasks_complete Completed
+
+            div.main_right_botbox
+                form(action="/users/demo" method="post" class="task")
+                    input(type="text" name="taskContent" placeholder="Add task here...")
+                    button(type="submit")
+                    if allTasks
+                        ul
+                            each task in allTasks
+                                li=task.taskContent
+
+                    //- input(type="checkbox") Buy juice
+                    //- input(type="checkbox") Clean out garage
