@@ -3,7 +3,7 @@ body{
 }
 
 .navbar {
-    background-color: darkred;
+    background-color: #B83436;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 250px 1fr 300px;
@@ -18,18 +18,23 @@ body{
     margin: 5px;
 }
 
+.search_glass {
+    margin: 2px 1px 5px 0px;
+}
+
 .navbar_searchbar {
-    width: 500px;
-    height: auto;
+    width: 400px;
+    height: 38px;
     background-color: rgba(255, 255, 255, 0.3);
-    margin: 5px;
-    margin-left: 0px;
+    margin-top: 6px;
+    margin-left: 2px;
     margin-bottom: 10px;
+    border-radius: 5px;
 
 }
 
 .navbar_theme_wrapper {
-    width: 300px;
+    width: 275px;
     display: flex;
     justify-content: space-around;
     margin: 5px;
