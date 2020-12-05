@@ -34,7 +34,8 @@ li {
 }
 
 .logoSmall {
-    width: 100%;
+    width: 95%;
+    margin: 0px 10px 0px 0px;
     height: auto;
 }
 
@@ -97,21 +98,54 @@ li {
     color: #157afd;
 }
 
-.main_right_bottombox{
+.main_right_bottombox {
     background-color: white;
     display: grid;
-    grid-template-rows: 30px 0px 1fr;
+    grid-template-rows: 60px 30px auto 3fr;
     padding: 20px 0px 0px 20px;
    
+}
+
+::placeholder {
+    color: rgba(255,255,255,.95);
+    opacity: 1;
+}
+
+.add_task_form {
+    width: 300px;
+    height: 40px;
+    background-color: #c0ebe0;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Lilita One', cursive;
+    font-size: 25px;
+    color: #157afd;
+    margin-top: 15px;
+    box-sizing: border-box;
+}
+
+.saveButton {
+    background-image: url("bluebutton.png");
+    background-size: cover;
+    border: none;
+    color: rgba(255,255,255,.75);
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    margin: 5px 0px 0px 0px;
+    padding: 5px 15px 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.30);
 }
 
 .tasks {
     display: grid;
     grid-template-rows: 20px 20px 20px 1fr;
     font-size: 16px;
+    margin: 30px 0px 0px 0px;
+    font-size: 16px;
     padding: 2px;
-}
-
-.task {
-    
 }

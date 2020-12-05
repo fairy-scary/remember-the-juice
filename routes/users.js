@@ -14,14 +14,13 @@ const bcrypt = require('bcryptjs');
 
 
 // Signup
-router.get('/signup', csrfProtection, (req, res) => {
-  const user = db.User.build();
+router.get('/signup', csrfProtection, asyncHandler(async (req, res) => {
+  const user = await db.User.build();
   res.render('signup', {
-    title: 'Signup',
     user,
     csrfToken: req.csrfToken(),
   });
-});
+}));
 
 const userValidators = [
   // Define the user validators.
@@ -90,15 +89,14 @@ router.post('/signup', csrfProtection, userValidators,
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
       await user.save();
-      // Create Personal list for each new user
+      // Create Personal list and Trash list for each new user
       await db.UserList.create({ listName: 'Personal', userId: user.id });
       await db.UserList.create({ listName: 'Trash', userId: user.id });
       loginUser(req, res, user);
-      res.redirect(`/users/:${user.id}`);
+      res.redirect(`/users`);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render('signup', {
-        title: 'Signup',
         user,
         errors,
         csrfToken: req.csrfToken(),
@@ -109,25 +107,15 @@ router.post('/signup', csrfProtection, userValidators,
   }));
 
 
-// User profile page
-// router.get(`/:id`, requireAuth, asyncHandler(async (req, res) => {
-//   const userId = parseInt(req.params.id, 10);
-//   const user = await db.User.findOne({ where: { id: userId } });
-
-//   res.render('main', { user, })
-// }));
-
-
-// Logout 
-router.post('/logout', (req, res) => {
-  logoutUser(req, res);
-  res.redirect('/');
-});
+// User profile page after login. Displays lists and tasks
+router.get(`/`, requireAuth, asyncHandler(async (req, res) => {
+  const userId = req.session.auth.userId;
+  const user = await db.User.findOne({ where: { id: userId } });
+  const lists = await db.UserList.findAll({ where: { userId: userId } });
+  const allTasks = await db.Task.findAll({ where: { userId: userId } })
+  res.render('main', { user, lists, allTasks, userId })
+}));
 
 
 
-/* GET users listing. */
-// router.get('/', function (req, res, next) {
-//   res.send('respond with a resource');
-// });
 module.exports = router;

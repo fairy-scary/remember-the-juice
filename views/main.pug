@@ -37,7 +37,7 @@ block content
                     each listName in lists
                         li= listName.listName
                 div.new_list
-                form(method="post" action=`/lists/`)
+                form(method="post" action=`/lists`)
                     input(type="text" name="listName" placeholder="Create list...")
                     button(type="submit")
                 
@@ -49,13 +49,15 @@ block content
                     p.tasks_incomplete Total Tasks
                     p.tasks_complete Completed
             div.main_right_bottombox
-                form(action=`/users/${userId}` method="post" class="task")
-                    input(type="text" name="taskContent" placeholder="Add task here...")
-                    button(type="submit" value="Save")
+                form(action=`/tasks` method="post")
+                    input(type="text" name="taskContent" class="add_task_form" placeholder="ADD TASK HERE ...")
+                    br
+                    button(type="submit" class="saveButton") Save
                 if allTasks
-                    ul
-                        each task in allTasks
-                            li=task.taskContent
+                    div.tasks
+                        ul
+                            each task in allTasks
+                                li=task.taskContent
 
-                    //- input(type="checkbox") Buy juice
-                    //- input(type="checkbox") Clean out garage
+                //- input(type="checkbox") Buy juice
+                //- input(type="checkbox") Clean out garage
