@@ -1,0 +1,62 @@
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/main.css")
+  link(rel="stylesheet" href="/stylesheets/navbar.css")
+  //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
+
+block content
+    div.navbar
+        button.navbar_hamburger hamburger menu
+        div.navbar_searchbar Search here
+        div.navbar_theme_wrapper
+            div.fruit_red
+                img(src="../images/fruits/fruit_red.png" alt="strawberry" class="navbar_themes")
+            div.fruit_orange
+                img(src="../images/fruits/fruit_orange.png" alt="pineapple" class="navbar_themes")
+            div.fruit_yellow
+                img(src="../images/fruits/fruit_yellow.png" alt="lemon" class="navbar_themes")
+            div.fruit_green
+                img(src="../images/fruits/fruit_green.png" alt="kiwi" class="navbar_themes")
+            div.fruit_blue
+                img(src="../images/fruits/fruit_blue.png" alt="blueberry" class="navbar_themes")
+            div.fruit_purple
+                img(src="../images/fruits/fruit_purple.png" alt="grape" class="navbar_themes")
+
+    div.main
+        div.main_left
+            img(src="../images/default-logo.png" class="logoSmall")
+            div.lists
+                p.main_left_menu_title Lists
+                ul
+                    li All
+                    each listName in lists
+                        li(onclick=`location.href="../lists/${listName.id}"`)= listName.listName
+                div.new_list
+                form(method="post" action=`/lists`)
+                    input(type="text" name="listName" placeholder="Create list...")
+                    button(type="submit")
+                p.main_left_menu_title Delete List
+                form(method="post" action="/lists/delete")
+                    select(name="listName")
+                        each listName in lists
+                            option(value=listName.id)= listName.listName
+                    button(type="submit") Delete
+
+
+        div.main_right
+            div.main_right_topbox
+                div.inbox Inbox
+                form().tasks_category
+                    p.tasks_incomplete Tasks
+                    p.tasks_complete Completed
+            div.main_right_botbox
+                form(action=`/tasks` method="post" class="task")
+                    input(type="text" name="taskContent" placeholder="Add task here...")
+                    button(type="submit")
+                if allTasks
+                    ul
+                        each task in allTasks
+                            li=task.taskContent

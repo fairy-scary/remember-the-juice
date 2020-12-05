@@ -29,7 +29,6 @@ router.post('/', asyncHandler(async (req, res) => {
 
 // Delete a list
 router.post('/delete', asyncHandler(async (req, res) => {
-  console.log(req.session)
   if (!req.session.auth) {
     const userId = 3;
     const { listName } = req.body
@@ -40,6 +39,29 @@ router.post('/delete', asyncHandler(async (req, res) => {
     const { listName } = req.body
     await db.UserList.destroy({ where: { id: listName, userId } });
     res.redirect('/users');
+  }
+}));
+
+// When a list is clicked on in left side menu, display the contents of that list
+router.get(`/:userListId(\\d+)`, asyncHandler(async (req, res) => {
+  if (!req.session.auth) {
+    const userId = 3;
+    const userListId = req.params.userListId;
+
+    const lists = await db.UserList.findAll({ where: { userId } });
+
+    console.log(req.session)
+    const allTasks = await db.Task.findAll({ where: { userId, userListId } })
+    res.render('list', { lists, allTasks });
+  } else {
+    const userId = req.session.auth.userId;
+    const userListId = req.params.userListId;
+
+    const lists = await db.UserList.findAll({ where: { userId } });
+
+    console.log(req.session)
+    const allTasks = await db.Task.findAll({ where: { userId, userListId } })
+    res.render('list', { lists, allTasks });
   }
 }));
 
