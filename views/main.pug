@@ -33,12 +33,18 @@ block content
                 ul
                     li All
                     each listName in lists
-                        li= listName.listName
+                        li(onclick=`location.href="../lists/${listName.id}"`)= listName.listName
                 div.new_list
                 form(method="post" action=`/lists`)
                     input(type="text" name="listName" placeholder="Create list...")
                     button(type="submit")
-                
+                p.main_left_menu_title Delete List
+                form(method="post" action="/lists/delete")
+                    select(name="listName")
+                        each listName in lists
+                            option(value=listName.id)= listName.listName
+                    button(type="submit") Delete
+
 
         div.main_right
             div.main_right_topbox
@@ -49,7 +55,10 @@ block content
             div.main_right_botbox
                 form(action=`/tasks` method="post" class="task")
                     input(type="text" name="taskContent" placeholder="Add task here...")
-                    button(type="submit")
+                    select(name="listName")
+                        each listName in lists
+                            option(value=listName.id)= listName.listName
+                    button(type="submit") Add To List
                 if allTasks
                     ul
                         each task in allTasks
