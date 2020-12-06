@@ -12,7 +12,7 @@
 .main_left {
     background-color:#A9DA58;
     display: grid;
-    grid-template-rows: 150px 1fr;
+    grid-template-rows: 120px 1fr;
     width: 250px;
 
 }
@@ -76,6 +76,8 @@
 }
 
 .dropdownDelete {
+    overflow: hidden;
+    width: 95px;
     font-family: 'Quicksand', sans-serif; 
     font-size: 15px;
     background-color: #D5FA94;
