@@ -35,7 +35,7 @@ li {
 
 .logoSmall {
     width: 95%;
-    margin: 0px 10px 0px 0px;
+    margin: 5px 0px 0px 10px;
     height: auto;
 }
 
@@ -148,4 +148,9 @@ li {
     margin: 30px 0px 0px 0px;
     font-size: 16px;
     padding: 2px;
+}
+
+.task {
+    font-family: 'Lilita One', cursive;
+    font-size: 22px;
 }

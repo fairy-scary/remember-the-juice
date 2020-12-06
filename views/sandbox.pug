@@ -1,0 +1,76 @@
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/main.css")
+  link(rel="stylesheet" href="/stylesheets/navbar.css")
+  link(rel="stylesheet" href="/stylesheets/strawberry.css" id="flavor")
+  //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
+
+block content
+    div.navbar
+        div.navbar_hamburger
+            img(src="../images/hamburger-white.png" style="width: 40px; opacity: .80")
+        div.navbar_searchbar
+            img(src="../images/search.png" class="search_glass" style="width: 35px; opacity: .80")
+        div.navbar_theme_wrapper
+            div.fruit_red
+                a(href="#" id="apple")
+                    img(src="../images/apple.png" class="navbar_themes")
+            div.fruit_orange
+                a(href="#" id="lemon")
+                    img(src="../images/lemon.png" id="lemon" class="navbar_themes")
+            div.fruit_yellow
+                a(href="#" id="orange")
+                    img(src="../images/orange.png" id="orange" class="navbar_themes")
+            div.fruit_green
+                a(href="#" id="grape")
+                    img(src="../images/grape.png" id="grape" class="navbar_themes")
+            div.fruit_blue
+                a(href="#" id="strawberry")
+                    img(src="../images/strawberry.png" id="strawberry" class="navbar_themes")
+
+    div.main
+        div.main_left
+            img(src="../images/default-logo.png" id="logo" class="logoSmall")
+            div.lists
+                p.main_left_menu_title Lists
+                ul
+                    if !userId
+                        li(onclick='location.href="../users"') All
+                        each listName in lists
+                            li(onclick=`location.href="../lists/${listName.id}"`)= listName.listName
+                    else 
+                        li(onclick='location.href="../demo"') All
+                        each listName in lists
+                            li(onclick=`location.href="../lists/${listName.id}"`)= listName.listName
+                div.new_list
+                form(method="post" action=`/lists`)
+                    input(type="text" name="listName" placeholder="Create list...")
+                    button(type="submit")
+                p.main_left_menu_title Delete List
+                form(method="post" action="/lists/delete")
+                    select(name="listName")
+                        each listName in lists
+                            option(value=listName.id)= listName.listName
+                    button(type="submit") Delete
+
+
+        div.main_right
+            div.main_right_topbox
+                div.inbox Inbox
+                form().tasks_category
+                    p.tasks_incomplete Tasks
+                    p.tasks_complete Completed
+            div.main_right_botbox
+                form(action=`/tasks` method="post" class="task")
+                     input(type="text" name="taskContent" placeholder="Add task here...")
+                    select(name="listName")
+                        each listName in lists
+                            option(value=listName.id)= listName.listName
+                    button(type="submit") Add To List
+                if allTasks
+                    ul
+                        each task in allTasks
+                            li=task.taskContent

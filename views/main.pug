@@ -8,7 +8,6 @@ append head
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
-
 block content
     div.navbar
         div.navbar_hamburger
@@ -32,46 +31,47 @@ block content
                 a(href="#" id="strawberry")
                     img(src="../images/strawberry.png" id="strawberry" class="navbar_themes")
 
-    
     div.main
         div.main_left
             img(src="../images/default-logo.png" id="logo" class="logoSmall")
             div.lists
-                p.main_left_menu_title Task Lists
+                p.main_left_menu_title Lists
                 ul
-                    li All
-                    each listName in lists
-                        li(onclick=`location.href="../lists/${listName.id}"`)= listName.listName
+                    if !userId
+                        li(onclick='location.href="../users"') All
+                        each listName in lists
+                            li(onclick=`location.href="../lists/${listName.id}"`)= listName.listName
+                    else 
+                        li(onclick='location.href="../demo"') All
+                        each listName in lists
+                            li(onclick=`location.href="../lists/${listName.id}"`)= listName.listName
                 div.new_list
                 form(method="post" action=`/lists`)
-                    input(type="text" name="listName" placeholder="Create list...")
-                    button(type="submit")
+                    input(type="text" name="listName" class="add_list_form" placeholder="CREATE LIST...")
+                    button(type="submit" class="saveButton") Add
+                br
                 p.main_left_menu_title Delete List
                 form(method="post" action="/lists/delete")
                     select(name="listName")
                         each listName in lists
                             option(value=listName.id)= listName.listName
-                    button(type="submit") Delete
+                    button(type="submit" class="saveButton") Delete
 
 
         div.main_right
             div.main_right_topbox
                 div.inbox
                 form().tasks_category
-                    p.tasks_incomplete Total Tasks
+                    p.tasks_incomplete Tasks
                     p.tasks_complete Completed
-
             div.main_right_bottombox
                 form(action=`/tasks` method="post")
-                    input(type="text" name="taskContent" class="add_task_form" placeholder="ADD TASK HERE ...")
-                    br
-                    button(type="submit" class="saveButton") Save
-
+                    input(type="text" name="taskContent" placeholder="ADD TASK HERE ..." class="add_task_form")
+                    select(name="listName")
+                        each listName in lists
+                            option(value=listName.id)= listName.listName
+                    button(type="submit" class="saveButton") Save to List
                 if allTasks
-                    div.tasks
-                        ol
-                            each task in allTasks
-                                li(class="task")=task.taskContent
-
-                //- input(type="checkbox") Buy juice
-                //- input(type="checkbox") Clean out garage
+                    ol
+                        each task in allTasks
+                            li(class="task")=task.taskContent

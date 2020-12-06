@@ -1,7 +1,5 @@
 window.addEventListener("load", (event) => {
-    console.log("hello from javascript!")
-
-
+    
        let cssRef = document.getElementById("flavor")
        let logo = document.getElementById("logo")
        let apple = document.getElementById("apple");
