@@ -47,31 +47,30 @@ block content
                             li(onclick=`location.href="../lists/${listName.id}"`)= listName.listName
                 div.new_list
                 form(method="post" action=`/lists`)
-                    input(type="text" name="listName" class="add_list_form" placeholder="CREATE LIST...")
-                    button(type="submit" class="saveButton") Add
-                br
+                    input(type="text" name="listName" placeholder="Create list...")
+                    button(type="submit")
                 p.main_left_menu_title Delete List
                 form(method="post" action="/lists/delete")
                     select(name="listName")
                         each listName in lists
                             option(value=listName.id)= listName.listName
-                    button(type="submit" class="saveButton") Delete
+                    button(type="submit") Delete
 
 
         div.main_right
             div.main_right_topbox
-                div.inbox
+                div.inbox Inbox
                 form().tasks_category
                     p.tasks_incomplete Tasks
                     p.tasks_complete Completed
-            div.main_right_bottombox
-                form(action=`/tasks` method="post")
-                    input(type="text" name="taskContent" placeholder="ADD TASK HERE ..." class="add_task_form")
+            div.main_right_botbox
+                form(action=`/tasks` method="post" class="task")
+                     input(type="text" name="taskContent" placeholder="Add task here...")
                     select(name="listName")
                         each listName in lists
                             option(value=listName.id)= listName.listName
-                    button(type="submit" class="saveButton") Save to List
+                    button(type="submit") Add To List
                 if allTasks
-                    ol
+                    ul
                         each task in allTasks
-                            li(class="task")=task.taskContent
+                            li=task.taskContent
