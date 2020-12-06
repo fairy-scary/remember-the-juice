@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const sequelize = require('sequelize');
-const op = sequelize.Op
 
 const csrf = require('csurf');
 const { check, validationResult } = require('express-validator');
