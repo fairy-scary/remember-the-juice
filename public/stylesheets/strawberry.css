@@ -42,7 +42,7 @@
 
 .add_task_form {
     width: 300px;
-    height: 40px;
+    height: 50px;
     background-color: #c0ebe0;
     border: 0px;
     border-radius: 5px;
@@ -50,8 +50,21 @@
     font-family: 'Lilita One', cursive;
     font-size: 25px;
     color: #157afd;
-    margin-top: 15px;
+    margin-top: 10px;
     box-sizing: border-box;
+}
+.dropdown {
+    height: 50px;
+    margin-top: 10px;
+    font-family: 'Lilita One', cursive;
+    font-size: 30px;
+    background-color: #68cdad;
+    color: rgba(255,255,255,.75);
+    border: #68cdad 2px ;
+    border-radius: 5px;
+    padding: 2px;
+    
+
 }
 
 .main_left {
@@ -62,16 +75,7 @@
 
 }
 
-.dropdown {
-    font-family: 'Lilita One', cursive;
-    font-size: 30px;
-    background-color: #68cdad;
-    color: rgba(255,255,255,.75);
-    border: #68cdad 2px ;
-    border-radius: 5px;
-    padding: 2px;
 
-}
 
 .dropdownDelete {
     font-family: 'Quicksand', sans-serif; 
