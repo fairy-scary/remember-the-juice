@@ -71,15 +71,6 @@ li {
     height: 100%;
 }
 
-.main_right_topbox {
-    background-color: #c0ebe0;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    height: 100%;
-    padding: 20px;
-
-}
-
 .inbox {
     height: 100%;
 }
@@ -111,20 +102,6 @@ li {
     opacity: 1;
 }
 
-.add_task_form {
-    width: 300px;
-    height: 40px;
-    background-color: #c0ebe0;
-    border: 0px;
-    border-radius: 5px;
-    padding: 10px;
-    font-family: 'Lilita One', cursive;
-    font-size: 25px;
-    color: #157afd;
-    margin-top: 15px;
-    box-sizing: border-box;
-}
-
 .saveButton {
     background-image: url("bluebutton.png");
     background-size: cover;
@@ -145,7 +122,7 @@ li {
     display: grid;
     grid-template-rows: 20px 20px 20px 1fr;
     font-size: 16px;
-    margin: 30px 0px 0px 0px;
+    margin: 35px 0px 0px 0px;
     font-size: 16px;
     padding: 2px;
 }
@@ -153,4 +130,13 @@ li {
 .task {
     font-family: 'Lilita One', cursive;
     font-size: 22px;
+}
+
+select {
+    position: relative;
+}
+
+.deleteList {
+    font-size: 11px;
+    font-weight: bold;
 }

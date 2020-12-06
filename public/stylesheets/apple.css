@@ -61,3 +61,25 @@
     width: 250px;
 
 }
+
+.dropdown {
+    font-family: 'Lilita One', cursive;
+    font-size: 30px;
+    background-color: #A9DA58;
+    color: rgba(255,255,255,.75);
+    border: #A9DA58 2px ;
+    border-radius: 5px;
+    padding: 2px;
+
+}
+
+.dropdownDelete {
+    font-family: 'Quicksand', sans-serif; 
+    font-size: 15px;
+    background-color: #D5FA94;
+    color: #4c4e54;
+    border: #D5FA94 2px ;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 0px 0px 0px 0px;
+}

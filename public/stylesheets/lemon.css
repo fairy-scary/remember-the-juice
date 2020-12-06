@@ -1,6 +1,6 @@
 
 .navbar {
-    background-color: #154712;
+    background-color: #2a4408;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 250px 1fr 300px;
@@ -60,4 +60,26 @@
     grid-template-rows: 150px 1fr;
     width: 250px;
 
+}
+
+.dropdown {
+    font-family: 'Lilita One', cursive;
+    font-size: 30px;
+    background-color: #EFC42C;
+    color: rgba(255,255,255,.75);
+    border: #EFC42C 2px ;
+    border-radius: 5px;
+    padding: 2px;
+
+}
+
+.dropdownDelete {
+    font-family: 'Quicksand', sans-serif; 
+    font-size: 15px;
+    background-color: #FDE157;
+    color: #4c4e54;
+    border: #FDE157 2px ;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 0px 0px 0px 0px;
 }
