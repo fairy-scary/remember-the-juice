@@ -10,7 +10,7 @@
 }
 
 .main_left {
-    background-color:#A9DA58;
+    background-color:#B1D671;
     display: grid;
     grid-template-rows: 120px 1fr;
     width: 250px;
@@ -20,7 +20,7 @@
 .add_list_form {
     width: 175px;
     height: 40px;
-    background-color: #D5FA94;
+    background-color: #CFE5A5;
     border: 0px;
     border-radius: 5px;
     padding: 10px;
@@ -32,7 +32,7 @@
 }
 
 .main_right_topbox {
-    background-color: #D5FA94;
+    background-color: #CFE5A5;
     display: grid;
     grid-template-rows: 1fr 1fr;
     height: 100%;
@@ -43,7 +43,7 @@
 .add_task_form {
     width: 300px;
     height: 50px;
-    background-color: #D5FA94;
+    background-color: #CFE5A5;
     border: 0px;
     border-radius: 5px;
     padding: 10px;
@@ -54,22 +54,14 @@
     box-sizing: border-box;
 }
 
-.main_left {
-    background-color:#A9DA58;
-    display: grid;
-    grid-template-rows: 150px 1fr;
-    width: 250px;
-
-}
-
 .dropdown {
     height: 50px;
     margin-top: 10px;
     font-family: 'Lilita One', cursive;
     font-size: 30px;
-    background-color: #A9DA58;
+    background-color: #B1D671;
     color: rgba(255,255,255,.75);
-    border: #A9DA58 2px ;
+    border: #B1D671 2px ;
     border-radius: 5px;
     padding: 2px;
 
@@ -80,9 +72,9 @@
     width: 95px;
     font-family: 'Quicksand', sans-serif; 
     font-size: 15px;
-    background-color: #D5FA94;
+    background-color: #CFE5A5;
     color: #4c4e54;
-    border: #D5FA94 2px ;
+    border: #CFE5A5 2px ;
     border-radius: 5px;
     padding: 3px;
     margin: 0px 0px 0px 0px;

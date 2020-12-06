@@ -68,14 +68,6 @@
 
 }
 
-.main_left {
-    background-color: #68cdad;
-    display: grid;
-    grid-template-rows: 150px 1fr;
-    width: 250px;
-
-}
-
 .dropdownDelete {
     overflow: hidden;
     width: 95px;

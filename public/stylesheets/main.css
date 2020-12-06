@@ -25,14 +25,6 @@ li {
     display: inline-block;
 }
 
-.main_left {
-    background-color: #68cdad;
-    display: grid;
-    grid-template-rows: 150px 1fr;
-    width: 250px;
-
-}
-
 .logoSmall {
     width: 95%;
     margin: 5px 0px 0px 10px;
@@ -73,6 +65,7 @@ li {
 
 .inbox {
     height: 10%;
+    text-shadow: 1px 1px 3px rgba(107, 119, 118, .5)
 }
 
 .tasks_category {
@@ -87,6 +80,7 @@ li {
 
 .tasks_incomplete {
     color: #157afd;
+    margin: 0px 0px 0px 0px;
 }
 
 .main_right_bottombox {
@@ -142,3 +136,9 @@ select {
     font-weight: bold;
 }
 
+.sum {
+    font-family: 'Lilita One', cursive;
+    font-size: 50px;  
+    color: rgba(255, 255, 255, .75);
+    margin: 0px 0px 0px 0px;
+}

@@ -10,7 +10,7 @@
 }
 
 .main_left {
-    background-color:#EFC42C;
+    background-color:#E5C047;
     display: grid;
     grid-template-rows: 120px 1fr;
     width: 250px;
@@ -20,7 +20,7 @@
 .add_list_form {
     width: 175px;
     height: 40px;
-    background-color: #FDE157;
+    background-color: #F2DC79;
     border: 0px;
     border-radius: 5px;
     padding: 10px;
@@ -32,7 +32,7 @@
 }
 
 .main_right_topbox {
-    background-color: #FDE157;
+    background-color: #F2DC79;
     display: grid;
     grid-template-rows: 1fr 1fr;
     height: 100%;
@@ -43,7 +43,7 @@
 .add_task_form {
     width: 300px;
     height: 50px;
-    background-color: #FDE157;
+    background-color: #F2DC79;
     border: 0px;
     border-radius: 5px;
     padding: 10px;
@@ -59,19 +59,11 @@
     margin-top: 10px;
     font-family: 'Lilita One', cursive;
     font-size: 30px;
-    background-color: #EFC42C;
+    background-color: #E5C047;
     color: rgba(255,255,255,.75);
-    border: #EFC42C 2px ;
+    border: #E5C047 2px ;
     border-radius: 5px;
     padding: 2px;
-
-}
-
-.main_left {
-    background-color:#EFC42C;
-    display: grid;
-    grid-template-rows: 150px 1fr;
-    width: 250px;
 
 }
 
@@ -80,9 +72,9 @@
     width: 95px;
     font-family: 'Quicksand', sans-serif; 
     font-size: 15px;
-    background-color: #FDE157;
+    background-color: #F2DC79;
     color: #4c4e54;
-    border: #FDE157 2px ;
+    border: #F2DC79 2px ;
     border-radius: 5px;
     padding: 3px;
     margin: 0px 0px 0px 0px;

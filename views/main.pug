@@ -60,10 +60,8 @@ block content
         div.main_right
             div.main_right_topbox
                 div.inbox
-                form().tasks_category
-                    p 3
-                        p.tasks_incomplete Tasks
-                        p.tasks_complete Completed
+                    p(class="sum") 42
+                        p.tasks_incomplete Total Tasks
             div.main_right_bottombox
                 form(action=`/tasks` method="post")
                     input(type="text" name="taskContent" placeholder="ADD TASK HERE ..." class="add_task_form")

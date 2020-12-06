@@ -54,14 +54,6 @@
     box-sizing: border-box;
 }
 
-.main_left {
-    background-color:#CCA5C6;
-    display: grid;
-    grid-template-rows: 150px 1fr;
-    width: 250px;
-
-}
-
 .dropdown {
     height: 50px;
     margin-top: 10px;

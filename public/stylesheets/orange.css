@@ -10,7 +10,7 @@
 }
 
 .main_left {
-    background-color:#FFB748;
+    background-color:#EDA842;
     display: grid;
     grid-template-rows: 120px 1fr;
     width: 250px;
@@ -54,22 +54,14 @@
     box-sizing: border-box;
 }
 
-.main_left {
-    background-color:#FFB748;
-    display: grid;
-    grid-template-rows: 150px 1fr;
-    width: 250px;
-
-}
-
 .dropdown {
     height: 50px;
     margin-top: 10px;
     font-family: 'Lilita One', cursive;
     font-size: 30px;
-    background-color: #FFB748;
+    background-color: #EDA842;
     color: rgba(255,255,255,.75);
-    border: #FFB748 2px ;
+    border: #EDA842 2px ;
     border-radius: 5px;
     padding: 2px;
 
