@@ -78,7 +78,7 @@ li {
 .tasks_category {
     font-size: 16px;
     text-shadow: 1px 1px 3px rgba(107, 119, 118, .5);
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 15px 0px;
     height: 100%;
     display: grid;
     grid-template-columns: 120px 0px 1fr;
@@ -110,7 +110,7 @@ li {
     font-size: 16px;
     font-family: 'Quicksand', sans-serif;
     font-weight: 500;
-    margin: 5px 0px 0px 0px;
+    margin: 8px 0px 0px 0px;
     padding: 5px 15px 5px 15px;
     text-align: center;
     text-decoration: none;
@@ -120,7 +120,7 @@ li {
 
 .tasks {
     display: grid;
-    grid-template-rows: 20px 20px 20px 1fr;
+    grid-template-rows: 0px 20px 20px 1fr;
     font-size: 16px;
     margin: 35px 0px 0px 0px;
     font-size: 16px;
@@ -133,10 +133,12 @@ li {
 }
 
 select {
-    position: relative;
+    position: initial;
+    padding-bottom: 10px;
 }
 
 .deleteList {
     font-size: 11px;
     font-weight: bold;
 }
+

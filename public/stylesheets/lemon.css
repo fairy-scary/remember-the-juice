@@ -1,6 +1,6 @@
 
 .navbar {
-    background-color: #2a4408;
+    background-color: #385414;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 250px 1fr 300px;
@@ -42,7 +42,7 @@
 
 .add_task_form {
     width: 300px;
-    height: 40px;
+    height: 50px;
     background-color: #FDE157;
     border: 0px;
     border-radius: 5px;
@@ -50,19 +50,13 @@
     font-family: 'Lilita One', cursive;
     font-size: 25px;
     color: #157afd;
-    margin-top: 15px;
+    margin-top: 10px;
     box-sizing: border-box;
 }
 
-.main_left {
-    background-color:#EFC42C;
-    display: grid;
-    grid-template-rows: 150px 1fr;
-    width: 250px;
-
-}
-
 .dropdown {
+    height: 50px;
+    margin-top: 10px;
     font-family: 'Lilita One', cursive;
     font-size: 30px;
     background-color: #EFC42C;
@@ -70,6 +64,14 @@
     border: #EFC42C 2px ;
     border-radius: 5px;
     padding: 2px;
+
+}
+
+.main_left {
+    background-color:#EFC42C;
+    display: grid;
+    grid-template-rows: 150px 1fr;
+    width: 250px;
 
 }
 
