@@ -4,7 +4,7 @@ append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/main.css")
   link(rel="stylesheet" href="/stylesheets/navbar.css")
-  link(rel=stylesheet href="/stylesheets/hamburger-menu.css")
+  link(rel="stylesheet" href="/stylesheets/strawberry.css" id="flavor")
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
@@ -17,19 +17,24 @@ block content
             img(src="../images/search.png" class="search_glass" style="width: 35px; opacity: .80")
         div.navbar_theme_wrapper
             div.fruit_red
-                img(src="../images/apple.png" alt="strawberry" class="navbar_themes")
+                a(href="#" id="apple")
+                    img(src="../images/apple.png" class="navbar_themes")
             div.fruit_orange
-                img(src="../images/lemon.png" alt="lemon" class="navbar_themes")
+                a(href="#" id="lemon")
+                    img(src="../images/lemon.png" id="lemon" class="navbar_themes")
             div.fruit_yellow
-                img(src="../images/orange.png" alt="orange" class="navbar_themes")
+                a(href="#" id="orange")
+                    img(src="../images/orange.png" id="orange" class="navbar_themes")
             div.fruit_green
-                img(src="../images/grape.png" alt="grape" class="navbar_themes")
+                a(href="#" id="grape")
+                    img(src="../images/grape.png" id="grape" class="navbar_themes")
             div.fruit_blue
-                img(src="../images/strawberry.png" alt="strawberry" class="navbar_themes")
+                a(href="#" id="strawberry")
+                    img(src="../images/strawberry.png" id="strawberry" class="navbar_themes")
 
     div.main
         div.main_left
-            img(src="../images/default-logo.png" class="logoSmall")
+            img(src="../images/default-logo.png" id="logo" class="logoSmall")
             div.lists
                 p.main_left_menu_title Task Lists
                 ul
