@@ -4,32 +4,34 @@ append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/main.css")
   link(rel="stylesheet" href="/stylesheets/navbar.css")
+  link(rel=stylesheet href="/stylesheets/hamburger-menu.css")
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
+
 block content
     div.navbar
-        button.navbar_hamburger hamburger menu
-        div.navbar_searchbar Search here
+        div.navbar_hamburger
+            img(src="../images/hamburger-white.png" style="width: 40px; opacity: .80")
+        div.navbar_searchbar
+            img(src="../images/search.png" class="search_glass" style="width: 35px; opacity: .80")
         div.navbar_theme_wrapper
             div.fruit_red
-                img(src="../images/fruits/fruit_red.png" alt="strawberry" class="navbar_themes")
+                img(src="../images/apple.png" alt="strawberry" class="navbar_themes")
             div.fruit_orange
-                img(src="../images/fruits/fruit_orange.png" alt="pineapple" class="navbar_themes")
+                img(src="../images/lemon.png" alt="lemon" class="navbar_themes")
             div.fruit_yellow
-                img(src="../images/fruits/fruit_yellow.png" alt="lemon" class="navbar_themes")
+                img(src="../images/orange.png" alt="orange" class="navbar_themes")
             div.fruit_green
-                img(src="../images/fruits/fruit_green.png" alt="kiwi" class="navbar_themes")
+                img(src="../images/grape.png" alt="grape" class="navbar_themes")
             div.fruit_blue
-                img(src="../images/fruits/fruit_blue.png" alt="blueberry" class="navbar_themes")
-            div.fruit_purple
-                img(src="../images/fruits/fruit_purple.png" alt="grape" class="navbar_themes")
+                img(src="../images/strawberry.png" alt="strawberry" class="navbar_themes")
 
     div.main
         div.main_left
             img(src="../images/default-logo.png" class="logoSmall")
             div.lists
-                p.main_left_menu_title Lists
+                p.main_left_menu_title Task Lists
                 ul
                     li All
                     each listName in lists
@@ -48,21 +50,22 @@ block content
 
         div.main_right
             div.main_right_topbox
-                div.inbox Inbox
+                div.inbox
                 form().tasks_category
-                    p.tasks_incomplete Tasks
+                    p.tasks_incomplete Total Tasks
                     p.tasks_complete Completed
-            div.main_right_botbox
-                form(action=`/tasks` method="post" class="task")
-                    input(type="text" name="taskContent" placeholder="Add task here...")
-                    select(name="listName")
-                        each listName in lists
-                            option(value=listName.id)= listName.listName
-                    button(type="submit") Add To List
-                if allTasks
-                    ul
-                        each task in allTasks
-                            li=task.taskContent
 
-                    //- input(type="checkbox") Buy juice
-                    //- input(type="checkbox") Clean out garage
+            div.main_right_bottombox
+                form(action=`/tasks` method="post")
+                    input(type="text" name="taskContent" class="add_task_form" placeholder="ADD TASK HERE ...")
+                    br
+                    button(type="submit" class="saveButton") Save
+
+                if allTasks
+                    div.tasks
+                        ul
+                            each task in allTasks
+                                li=task.taskContent
+
+                //- input(type="checkbox") Buy juice
+                //- input(type="checkbox") Clean out garage
