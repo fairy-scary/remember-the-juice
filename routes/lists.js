@@ -52,7 +52,7 @@ router.get(`/:userListId(\\d+)`, asyncHandler(async (req, res) => {
 
     console.log(req.session)
     const allTasks = await db.Task.findAll({ where: { userId, userListId } })
-    res.render('list', { lists, allTasks });
+    res.render('list', { lists, allTasks, userId });
   } else {
     const userId = req.session.auth.userId;
     const userListId = req.params.userListId;
