@@ -10,7 +10,7 @@
 }
 
 .main_left {
-    background-color:#E5C047;
+    background-color:#e3df4d;
     display: grid;
     grid-template-rows: 120px 1fr;
     width: 250px;
@@ -20,7 +20,7 @@
 .add_list_form {
     width: 175px;
     height: 40px;
-    background-color: #F2DC79;
+    background-color: #fff68d;
     border: 0px;
     border-radius: 5px;
     padding: 10px;
@@ -32,7 +32,7 @@
 }
 
 .main_right_topbox {
-    background-color: #F2DC79;
+    background-color: #fff68d;
     display: grid;
     grid-template-rows: 1fr 1fr;
     height: 100%;
@@ -43,7 +43,7 @@
 .add_task_form {
     width: 300px;
     height: 50px;
-    background-color: #F2DC79;
+    background-color: #fff68d;
     border: 0px;
     border-radius: 5px;
     padding: 10px;
@@ -59,9 +59,9 @@
     margin-top: 10px;
     font-family: 'Lilita One', cursive;
     font-size: 30px;
-    background-color: #E5C047;
+    background-color: #e3df4d;
     color: rgba(255,255,255,.75);
-    border: #E5C047 2px ;
+    border: #e3df4d 2px ;
     border-radius: 5px;
     padding: 2px;
 
@@ -72,9 +72,9 @@
     width: 95px;
     font-family: 'Quicksand', sans-serif; 
     font-size: 15px;
-    background-color: #F2DC79;
+    background-color: #fff68d;
     color: #4c4e54;
-    border: #F2DC79 2px ;
+    border: #fff68d 2px ;
     border-radius: 5px;
     padding: 3px;
     margin: 0px 0px 0px 0px;
