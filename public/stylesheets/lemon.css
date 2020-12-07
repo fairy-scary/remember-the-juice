@@ -20,7 +20,7 @@
 .add_list_form {
     width: 175px;
     height: 40px;
-    background-color: #fff68d;
+    background-color: #fee676;
     border: 0px;
     border-radius: 5px;
     padding: 10px;
@@ -32,7 +32,7 @@
 }
 
 .main_right_topbox {
-    background-color: #fff68d;
+    background-color: #fee676;
     display: grid;
     grid-template-rows: 1fr 1fr;
     height: 100%;
@@ -43,7 +43,7 @@
 .add_task_form {
     width: 300px;
     height: 50px;
-    background-color: #fff68d;
+    background-color: #fee676;
     border: 0px;
     border-radius: 5px;
     padding: 10px;
@@ -72,9 +72,9 @@
     width: 95px;
     font-family: 'Quicksand', sans-serif; 
     font-size: 15px;
-    background-color: #fff68d;
+    background-color: #fee676;
     color: #4c4e54;
-    border: #fff68d 2px ;
+    border: #fee676 2px ;
     border-radius: 5px;
     padding: 3px;
     margin: 0px 0px 0px 0px;
