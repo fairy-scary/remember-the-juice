@@ -4,7 +4,7 @@ const { logoutUser } = require('../auth');
 
 
 // Logout 
-router.post('/logout', (req, res) => {
+router.get('/', (req, res) => {
     logoutUser(req, res);
     res.redirect('/');
 });

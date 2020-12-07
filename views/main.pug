@@ -61,7 +61,7 @@ block content
         div.main_right
             div.main_right_topbox
                 div.inbox
-                    p(class="sum") 42
+                    p(class="sum")= allTasks.length
                         p.tasks_incomplete Total Tasks
             div.main_right_bottombox
                 form(action=`/tasks` method="post")
