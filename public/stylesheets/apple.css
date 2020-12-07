@@ -10,7 +10,7 @@
 }
 
 .main_left {
-    background-color:#7bab3a;
+    background-color:#9acd54;
     display: grid;
     grid-template-rows: 120px 1fr;
     width: 250px;
@@ -59,9 +59,9 @@
     margin-top: 10px;
     font-family: 'Lilita One', cursive;
     font-size: 30px;
-    background-color: #7bab3a;
+    background-color: #9acd54;
     color: rgba(255,255,255,.75);
-    border: #7bab3a 2px ;
+    border: #9acd54 2px ;
     border-radius: 5px;
     padding: 2px;
 
