@@ -1,144 +1,147 @@
 .main {
-    background-color: white;
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: 1fr;
-    width: 100%;
-    height: 100%;
-    margin-top: 50px;
-    position: absolute;
-
+  background-color: white;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 1fr;
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+  position: absolute;
 }
 
 ul {
-    list-style-type: none;
-    padding: 0px 0px 0px 0px;
+  list-style-type: none;
+  padding: 0px 0px 0px 0px;
 }
 
 li {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.li-left-menu:hover {
+  color: white;
 }
 
 .navbar_hamburger {
-    width:40px;
-    display: inline-block;
+  width: 40px;
+  display: inline-block;
 }
 
 .logoSmall {
-    width: 95%;
-    margin: 5px 0px 0px 10px;
-    height: auto;
+  width: 95%;
+  margin: 5px 0px 0px 10px;
+  height: auto;
 }
 
 .main_left_menu {
-    display: grid;
-    grid-template-rows: 130px 1fr;
-    height: 100%;
-    padding-left: 50px;
-    justify-items: left;
+  display: grid;
+  grid-template-rows: 130px 1fr;
+  height: 100%;
+  padding-left: 50px;
+  justify-items: left;
 }
 
 .inbox {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .lists {
-    font-size: 15px;
-    padding-bottom: 0px;
-    margin: 0px 20px 20px 40px;
+  font-size: 15px;
+  padding-bottom: 0px;
+  margin: 0px 20px 20px 40px;
 }
 
 .main_left_menu_title {
-    font-size: 22px;
-    color: #157afd;
-    font-weight: 700;
-    margin: 0px 0px 10px 0px;
-    text-shadow: 1px 1px 3px rgba(107, 119, 118, .5);
+  font-size: 22px;
+  color: #157afd;
+  font-weight: 700;
+  margin: 0px 0px 10px 0px;
+  text-shadow: 1px 1px 3px rgba(107, 119, 118, 0.5);
 }
 
 .main_right {
-    display: grid;
-    grid-template-rows: 120px 1fr;
-    height: 100%;
+  display: grid;
+  grid-template-rows: 120px 1fr;
+  height: 100%;
 }
 
 .inbox {
-    height: 10%;
-    text-shadow: 1px 1px 3px rgba(107, 119, 118, .5)
+  height: 10%;
+  text-shadow: 1px 1px 3px rgba(107, 119, 118, 0.5);
 }
 
 .tasks_category {
-    font-size: 16px;
-    text-shadow: 1px 1px 3px rgba(107, 119, 118, .5);
-    margin: 0px 0px 15px 0px;
-    height: 10%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
+  font-size: 16px;
+  text-shadow: 1px 1px 3px rgba(107, 119, 118, 0.5);
+  margin: 0px 0px 15px 0px;
+  height: 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .tasks_incomplete {
-    color: #157afd;
-    margin: 0px 0px 0px 0px;
+  color: #157afd;
+  margin: 0px 0px 0px 0px;
 }
 
 .main_right_bottombox {
-    background-color: white;
-    display: grid;
-    grid-template-rows: 60px 30px auto 3fr;
-    padding: 20px 0px 0px 20px;
-   
+  background-color: white;
+  display: grid;
+  grid-template-rows: 60px 30px auto 3fr;
+  padding: 20px 0px 0px 20px;
 }
 
 ::placeholder {
-    color: rgba(255,255,255,.95);
-    opacity: 1;
+  color: rgba(255, 255, 255, 0.95);
+  opacity: 1;
 }
 
 .saveButton {
-    background-image: url("bluebutton.png");
-    background-size: cover;
-    border: none;
-    color: rgba(255,255,255,.75);
-    font-size: 16px;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 500;
-    margin: 8px 0px 5px 0px;
-    padding: 5px 15px 5px 15px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px rgba(0,0,0,.30);
+  background-image: url("bluebutton.png");
+  background-size: cover;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 16px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  margin: 8px 0px 5px 0px;
+  padding: 5px 15px 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .tasks {
-    display: grid;
-    grid-template-rows: 0px 20px 20px 1fr;
-    font-size: 16px;
-    margin: 35px 0px 0px 0px;
-    font-size: 16px;
-    padding: 2px;
+  display: grid;
+  grid-template-rows: 0px 20px 20px 1fr;
+  font-size: 16px;
+  margin: 35px 0px 0px 0px;
+  font-size: 16px;
+  padding: 2px;
 }
 
 .task {
-    font-family: 'Lilita One', cursive;
-    font-size: 22px;
+  font-family: "Lilita One", cursive;
+  font-size: 22px;
 }
 
 select {
-    position: initial;
-    padding-bottom: 10px;
+  position: initial;
+  padding-bottom: 10px;
 }
 
 .deleteList {
-    font-size: 11px;
-    font-weight: bold;
+  font-size: 11px;
+  font-weight: bold;
 }
 
 .sum {
-    font-family: 'Lilita One', cursive;
-    font-size: 50px;  
-    color: rgba(255, 255, 255, .95);
-    margin: 0px 0px 0px 0px;
+  font-family: "Lilita One", cursive;
+  font-size: 50px;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0px 0px 0px 0px;
 }

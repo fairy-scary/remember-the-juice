@@ -1,93 +1,95 @@
 /* for "/" and "/signup" */
+
 .authContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin-top: 0px;
-    padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 0px;
+  padding: 0px;
 }
 
 .logoLarge {
-    width: 700px;
+  width: 700px;
 }
 
 ::placeholder {
-    color: rgba(255,255,255,.75);
-    opacity: 1;
+  color: rgba(255, 255, 255, 0.75);
+  opacity: 1;
 }
 
 input {
-    width: 500px;
-    height: 40px;
-    background-color: rgba(255,255,255,.25);
-    border: 0px;
-    border-radius: 5px;
-    padding: 10px;
-    font-family: 'Lilita One', cursive;
-    font-size: 25px;
-    color: white;
-    margin-top: 15px;
-    box-sizing: border-box;
+  width: 500px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 0px;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: "Lilita One", cursive;
+  font-size: 25px;
+  color: white;
+  margin-top: 15px;
+  box-sizing: border-box;
 }
 
 .loginButton {
-    background-image: url("redbutton.png");
-    background-size: cover;
-    border: none;
-    color: rgba(255,255,255,.75);
-    font-size: 25px;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 500;
-    padding: 5px 25px 10px 25px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px rgba(0,0,0,.30);
-    display: inline-block;
-    
+  background-image: url("redbutton.png");
+  background-size: cover;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 25px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  padding: 5px 25px 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  cursor: pointer;
 }
 
 .signUpButton {
-    background-image: url("bluebutton.png");
-    background-size: cover;
-    border: none;
-    color: rgba(255,255,255,.75);
-    font-size: 25px;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 500;
-    padding: 5px 25px 10px 25px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px rgba(0,0,0,.30);
-    display: inline-block;
+  background-image: url("bluebutton.png");
+  background-size: cover;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 25px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  padding: 5px 25px 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  cursor: pointer;
 }
 
-
 .demoButton {
-    background-image: url("greenbutton.png");
-    background-size: cover;
-    border: none;
-    color: rgba(255,255,255,.75);
-    font-size: 25px;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 500;
-    padding: 5px 25px 10px 25px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px rgba(0,0,0,.30);
-    display: inline-block;
+  background-image: url("greenbutton.png");
+  background-size: cover;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 25px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  padding: 5px 25px 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  cursor: pointer;
 }
 
 .authFooter {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: space-between;
-    margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: space-between;
+  margin-top: 20px;
 }

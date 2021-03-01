@@ -113,10 +113,11 @@ router.post('/signup', csrfProtection, userValidators,
 router.get(`/`, requireAuth, asyncHandler(async (req, res) => {
   const userId = req.session.auth.userId;
   const user = await db.User.findOne({ where: { id: userId } });
-  const lists = await db.UserList.findAll({ where: { userId: userId } });
+  const lists = await db.UserList.findAll({ where: { userId, listName: {[op.not]: 'Trash'}} });
+  const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}})
 
   const allTasks = await db.Task.findAll({ where: { userId: userId } })
-  res.render('main', { user, lists, allTasks, userId })
+  res.render('main', { user, lists, allTasks, userId, trashList })
 }));
 
 

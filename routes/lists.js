@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/models');
+const sequelize = require('sequelize');
+const op = sequelize.Op
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
 
@@ -49,18 +51,22 @@ router.get(`/:userListId(\\d+)`, asyncHandler(async (req, res) => {
     const userId = user.id;
     const userListId = req.params.userListId;
 
-    const lists = await db.UserList.findAll({ where: { userId } });
+    const lists = await db.UserList.findAll({ where: { userId, listName: {[op.not]: 'Trash'}} });
+    const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}})
 
     const allTasks = await db.Task.findAll({ where: { userId, userListId } })
-    res.render('list', { lists, allTasks, userId });
+    
+    res.render('list', { lists, allTasks, userId, user, trashList });
   } else {
     const userId = req.session.auth.userId;
+    const user = await db.User.findOne({ where: { userId } });
     const userListId = req.params.userListId;
 
-    const lists = await db.UserList.findAll({ where: { userId } });
+    const lists = await db.UserList.findAll({ where: { userId, listName: {[op.not]: 'Trash'} } });
+    const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}})
 
     const allTasks = await db.Task.findAll({ where: { userId, userListId } })
-    res.render('list', { lists, allTasks });
+    res.render('list', { lists, allTasks, user, trashList });
   }
 }));
 

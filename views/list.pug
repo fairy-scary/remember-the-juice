@@ -13,8 +13,10 @@ block content
         div.navbar_hamburger
             a(href="/logout")
                 img(src="../images/hamburger-white.png" style="width: 40px; opacity: .80")
-        div.navbar_searchbar
-            img(src="../images/search.png" class="search_glass" style="width: 35px; opacity: .80")
+        //- div.navbar_searchbar
+        div
+            //- img(src="../images/search.png" class="search_glass" style="width: 35px; opacity: .80")
+            h1= 'Welcome, ' + user.username
         div.navbar_theme_wrapper
             div.fruit_red
                 a(href="#" id="apple")
@@ -39,23 +41,25 @@ block content
                 p.main_left_menu_title Lists
                 ul
                     if !userId
-                        li(onclick='location.href="../users"') All
+                        li(class='li-left-menu' onclick='location.href="../users"') All
                         each listName in lists
-                            li(onclick=`location.href="../lists/${listName.id}"`)= listName.listName
+                            li(class='li-left-menu' onclick=`location.href="../lists/${listName.id}"`)= listName.listName
+                        li(class='li-left-menu' onclick=`location.href="../lists/${trashList.id}"`) Trash
                     else 
-                        li(onclick='location.href="../demo"') All
+                        li(class='li-left-menu' onclick='location.href="../demo"') All
                         each listName in lists
-                            li(onclick=`location.href="../lists/${listName.id}"`)= listName.listName
+                            li(class='li-left-menu' onclick=`location.href="../lists/${listName.id}"`)= listName.listName
+                        li(class='li-left-menu' onclick=`location.href="../lists/${trashList.id}"`) Trash
                 div.new_list
                 form(method="post" action=`/lists`)
                     input(type="text" name="listName" class="add_list_form" placeholder="CREATE LIST...")
                     button(type="submit" class="saveButton") Add
                 br
                 form(method="post" action="/lists/delete")
-                    select(name="listName" class="dropdownDelete")
+                    select(name="listName" class="add_list_form")
                         each listName in lists
                             option(value=listName.id)= listName.listName
-                    button(type="submit" class="saveButton deleteList") Delete List
+                    button(type="submit" class="saveButton") Delete List
 
 
         div.main_right
