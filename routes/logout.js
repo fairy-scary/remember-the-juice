@@ -6,7 +6,11 @@ const { logoutUser } = require('../auth');
 // Logout 
 router.get('/', (req, res) => {
     logoutUser(req, res);
-    res.redirect('/');
+    res.redirect('/logout/user');
+});
+
+router.get('/user', (req, res) => {
+    res.render('logout');
 });
 
 module.exports = router;

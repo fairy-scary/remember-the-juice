@@ -1,0 +1,9 @@
+.logout-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  padding: 10px;
+}

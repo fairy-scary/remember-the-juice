@@ -1,0 +1,9 @@
+extends layout
+
+append head
+    link(rel="stylesheet" href="/stylesheets/logout.css")
+    link(rel="stylesheet" href="/stylesheets/login-signup.css")
+block content
+    div.logout-container
+        h2 You successfully logged out!
+        button(class="loginButton" type="button" onclick="location.href='/'") Home
