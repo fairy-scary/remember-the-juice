@@ -17,6 +17,9 @@ ul {
 
 li {
   padding-bottom: 10px;
+}
+
+.li-left-menu {
   cursor: pointer;
 }
 
@@ -27,6 +30,7 @@ li {
 .navbar_hamburger {
   width: 40px;
   display: inline-block;
+  color: white;
 }
 
 .logoSmall {
