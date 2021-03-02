@@ -3,7 +3,7 @@
 <br />
 <p align="center"  style='margin-top: -40px; margin-bottom: -10px;'>
   <a href="https://github.com/fairy-scary/remember-the-juice">
-    <img src="./public/images/default-logo.png" alt="logo" width="150" height="150" style="object-fit: contain">
+    <img src="./public/images/default-logo.png" alt="logo" width="150" height="100" style="object-fit: contain">
   </a>
 
   <p align="center">
@@ -47,8 +47,8 @@ This application features a HTML, CSS frontend, rendered along with Pug.js and a
 <details open="open">
    <summary>Screenshots</summary>
    <div style="display: flex">
-      <img src="./screenshots/remember-the-juice.png" width="31%" height="30%" style="margin: 5px"/>
-      <img src="./screenshots/remember-the-juice.gif" width="31%" height="30%"  style="margin: 5px"/>
+      <img src="./screenshots/remember-the-juice.png" width="50%" height="50%" style="margin: 5px"/>
+      <img src="./screenshots/remember-the-juice.gif" width="50%" height="50%"  style="margin: 5px"/>
    <div>
 </details>
 <br />
@@ -72,7 +72,9 @@ This application features a HTML, CSS frontend, rendered along with Pug.js and a
 ## Contact
 
 Angelica Wilson - website: https://angelicawilson.com
+<br>
 Autumn Wiggins
+<br>
 Jung Park
 
 Project Link: [https://github.com/fairy-scary/remember-the-juice](https://github.com/fairy-scary/remember-the-juice)
