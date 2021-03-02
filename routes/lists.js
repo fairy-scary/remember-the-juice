@@ -52,8 +52,9 @@ router.get(`/:userListId(\\d+)`, asyncHandler(async (req, res) => {
     const userListId = req.params.userListId;
 
     const lists = await db.UserList.findAll({ where: { userId, listName: {[op.not]: 'Trash'}} });
-    const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}})
+    const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}});
 
+    // GET ALL TASKS IN SPECIFIC LIST
     const allTasks = await db.Task.findAll({ where: { userId, userListId } })
     
     res.render('list', { lists, allTasks, userId, user, trashList });
@@ -63,9 +64,11 @@ router.get(`/:userListId(\\d+)`, asyncHandler(async (req, res) => {
     const userListId = req.params.userListId;
 
     const lists = await db.UserList.findAll({ where: { userId, listName: {[op.not]: 'Trash'} } });
-    const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}})
+    const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}});
 
+    // GET ALL TASKS IN SPECIFIC LIST
     const allTasks = await db.Task.findAll({ where: { userId, userListId } })
+
     res.render('list', { lists, allTasks, user, trashList });
   }
 }));

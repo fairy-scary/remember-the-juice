@@ -115,8 +115,11 @@ router.get(`/`, requireAuth, asyncHandler(async (req, res) => {
   const user = await db.User.findOne({ where: { id: userId } });
   const lists = await db.UserList.findAll({ where: { userId, listName: {[op.not]: 'Trash'}} });
   const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}})
+  const trashListId = trashList.id;
 
-  const allTasks = await db.Task.findAll({ where: { userId: userId } })
+  // GET ALL TASKS EXCEPT TASKS IN TRASH
+  const allTasks = await db.Task.findAll({ where: { userId, userListId: {[op.not]: trashListId} } });
+
   res.render('main', { user, lists, allTasks, userId, trashList })
 }));
 
