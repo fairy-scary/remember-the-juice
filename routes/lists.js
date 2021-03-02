@@ -14,15 +14,28 @@ router.post('/', asyncHandler(async (req, res) => {
     const user = await db.User.findOne({ where: { username: 'demo' } });
     const userId = user.id;
     const { listName } = req.body
-    const newList = await db.UserList.build({ listName, userId });
-    await newList.save()
-    res.redirect('/demo');
+
+    // PREVENTS CREATION OF EMPTY LIST NAME
+    if(listName){
+      const newList = await db.UserList.build({ listName, userId });
+      await newList.save()
+      res.redirect('/demo');
+    } else {
+      res.redirect('/demo');
+    }
+    
   } else {
     const userId = req.session.auth.userId;
-    const { listName } = req.body
-    const newList = await db.UserList.build({ listName, userId });
-    await newList.save()
-    res.redirect('/users')
+    const { listName } = req.body;
+
+    // PREVENTS CREATION OF EMPTY LIST NAME
+    if(listName){
+      const newList = await db.UserList.build({ listName, userId });
+      await newList.save()
+      res.redirect('/users')
+    } else {
+      res.redirect('/users')
+    }
   }
 }));
 
