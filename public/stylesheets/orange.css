@@ -1,82 +1,85 @@
-
 .navbar {
-    background-color: #d96517;
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 250px 1fr 300px;
-    position: fixed;
-    height: 50px;
-    width: 100%;
+  background-color: #d96517;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 250px 1fr 300px;
+  position: fixed;
+  height: 50px;
+  width: 100%;
 }
 
 .main_left {
-    background-color:#fe9939;
-    display: grid;
-    grid-template-rows: 120px 1fr;
-    width: 250px;
-
+  background-color: #fe9939;
+  display: grid;
+  grid-template-rows: 120px 1fr;
+  width: 250px;
 }
 
 .add_list_form {
-    width: 175px;
-    height: 40px;
-    background-color: #FFCE6D;
-    border: 0px;
-    border-radius: 5px;
-    padding: 10px;
-    font-family: 'Lilita One', cursive;
-    font-size: 20px;
-    color: #157afd;
-    margin: 0px 0px 2px 0px;
-    box-sizing: border-box;
+  width: 175px;
+  height: 40px;
+  background-color: #ffce6d;
+  border: 0px;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: "Lilita One", cursive;
+  font-size: 20px;
+  color: #157afd;
+  margin: 0px 0px 2px 0px;
+  box-sizing: border-box;
+}
+
+.add_list_form:hover {
+  border: 1px solid #157afd;
 }
 
 .main_right_topbox {
-    background-color: #FFCE6D;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    height: 100%;
-    padding: 20px;
-
+  background-color: #ffce6d;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 100%;
+  padding: 20px;
 }
 
 .add_task_form {
-    width: 300px;
-    height: 50px;
-    background-color: #FFCE6D;
-    border: 0px;
-    border-radius: 5px;
-    padding: 10px;
-    font-family: 'Lilita One', cursive;
-    font-size: 25px;
-    color: #157afd;
-    margin-top: 10px;
-    box-sizing: border-box;
+  width: 300px;
+  height: 50px;
+  background-color: #ffce6d;
+  border: 0px;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: "Lilita One", cursive;
+  font-size: 25px;
+  color: #157afd;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.add_task_form:hover {
+  border: 1px solid #157afd;
 }
 
 .dropdown {
-    height: 50px;
-    margin-top: 10px;
-    font-family: 'Lilita One', cursive;
-    font-size: 30px;
-    background-color: #fe9939;
-    color: rgba(255,255,255,.75);
-    border: #fe9939 2px ;
-    border-radius: 5px;
-    padding: 2px;
-
+  height: 50px;
+  margin-top: 10px;
+  font-family: "Lilita One", cursive;
+  font-size: 30px;
+  background-color: #fe9939;
+  color: rgba(255, 255, 255, 0.75);
+  border: #fe9939 2px;
+  border-radius: 5px;
+  padding: 2px;
 }
 
 .dropdownDelete {
-    overflow: hidden;
-    width: 95px;
-    font-family: 'Quicksand', sans-serif; 
-    font-size: 15px;
-    background-color: #FFCE6D;
-    color: #4c4e54;
-    border: #FFCE6D 2px ;
-    border-radius: 5px;
-    padding: 3px;
-    margin: 0px 0px 0px 0px;
+  overflow: hidden;
+  width: 95px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 15px;
+  background-color: #ffce6d;
+  color: #4c4e54;
+  border: #ffce6d 2px;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 0px 0px 0px 0px;
 }
-
