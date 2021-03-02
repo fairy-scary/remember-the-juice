@@ -66,7 +66,10 @@ block content
             div.main_right_topbox
                 div.inbox
                     p(class="sum")= allTasks.length
-                        p.tasks_incomplete Total Tasks
+                        if currentListName
+                            p.tasks_incomplete= 'Total Tasks In '+ currentListName.listName
+                        else 
+                            p.tasks_incomplete Total Tasks
             div.main_right_bottombox
                 form(action=`/tasks` method="post")
                     input(type="text" name="taskContent" placeholder="ADD TASK HERE ..." class="add_task_form")

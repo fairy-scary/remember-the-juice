@@ -55,9 +55,12 @@ router.get(`/:userListId(\\d+)`, asyncHandler(async (req, res) => {
     const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}});
 
     // GET ALL TASKS IN SPECIFIC LIST
-    const allTasks = await db.Task.findAll({ where: { userId, userListId } })
+    const allTasks = await db.Task.findAll({ where: { userId, userListId } });
+
+    // GET CURRENT LIST THAT IS CLICKED ON
+    const currentListName = await db.UserList.findOne({ where: { id: userListId } });
     
-    res.render('list', { lists, allTasks, userId, user, trashList });
+    res.render('list', { lists, allTasks, userId, user, trashList, currentListName });
   } else {
     const userId = req.session.auth.userId;
     const user = await db.User.findOne({ where: { userId } });
@@ -67,9 +70,12 @@ router.get(`/:userListId(\\d+)`, asyncHandler(async (req, res) => {
     const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}});
 
     // GET ALL TASKS IN SPECIFIC LIST
-    const allTasks = await db.Task.findAll({ where: { userId, userListId } })
+    const allTasks = await db.Task.findAll({ where: { userId, userListId } });
 
-    res.render('list', { lists, allTasks, user, trashList });
+    // GET CURRENT LIST THAT IS CLICKED ON
+    const currentListName = await db.UserList.findOne({ where: { id: userListId } });
+
+    res.render('list', { lists, allTasks, user, trashList, currentListName });
   }
 }));
 
