@@ -81,7 +81,9 @@ block content
                     button(type="submit" class="saveButton") Save to List
                 if allTasks
                     div.tasks
-                        ol
+                        ol(id='task-list')
                             each task in allTasks
                                 li(class="task")=task.taskContent
+                                //- button(type="submit" class="saveButton edit") Edit
+                                //- button(type="submit" class="saveButton test") Test
 

@@ -6,7 +6,35 @@ window.addEventListener("load", (event) => {
        let lemon = document.getElementById("lemon");
        let orange = document.getElementById("orange");
        let grape = document.getElementById("grape");
-       let strawberry = document.getElementById("strawberry")
+       let strawberry = document.getElementById("strawberry");
+    //    let editButtons = document.querySelectorAll('.edit');
+    //    let taskList = document.getElementById('task-list');
+    //    let testButtons = document.querySelectorAll('.test');
+
+    //    testButtons.forEach(testButton => {
+    //             testButton.style.visibility = 'hidden'
+    //     })
+       
+    //    console.log(taskList)
+    //    for (let i=0; i<editButtons.length; i++){
+    //        let button = editButtons[i];
+    //        button.addEventListener('click', () => {
+    //            let testButton = testButtons[i];
+    //            testButton.style.visibility = 'visible'
+    //        })
+    //    }
+    //    editButtons.forEach(button => {
+    //         button.addEventListener("click", () => {
+    //         // let myNewListItem = document.createElement('li');
+    //         // myNewListItem.innerHTML='hey';
+    //         // taskList.appendChild(myNewListItem);
+
+    //         testButtons.forEach(testButton => {
+    //             testButton.style.visibility = 'hidden'
+    //         })
+        
+    //         });
+    //    })
 
    
     apple.addEventListener("click", () => {
@@ -33,5 +61,12 @@ window.addEventListener("load", (event) => {
         cssRef.setAttribute('href', '/stylesheets/strawberry.css')
         logo.setAttribute("src", "../images/default-logo.png")
     });
+
+    // editButton.addEventListener("click", () => {
+    //     let myNewListItem = document.createElement('li');
+    //     myNewListItem.innerHTML='hey';
+    //     taskList.appendChild(myNewListItem);
+        
+    // });
 
 });
