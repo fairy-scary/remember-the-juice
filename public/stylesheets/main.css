@@ -149,3 +149,16 @@ select {
   color: rgba(255, 255, 255, 0.95);
   margin: 0px 0px 0px 0px;
 }
+
+.task-div {
+  border-top: 0.5px solid rgb(170, 169, 169);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0 0.5em 0;
+}
+
+.edit-buttons-div {
+  display: flex;
+  justify-content: space-between;
+}
