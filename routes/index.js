@@ -48,7 +48,7 @@ router.post('/', csrfProtection, loginValidators,
 
         if (passwordMatch) {
           loginUser(req, res, user);
-          req.session.save(err => { res.redirect(`/users`) })
+          req.session.save(err => { res.redirect(`/profile`) })
           return;
         }
       }

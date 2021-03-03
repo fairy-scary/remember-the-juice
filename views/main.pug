@@ -81,4 +81,9 @@ block content
                     div.tasks
                         ol
                             each task in allTasks
-                                li(class="task")=task.taskContent
+                                div.task-div
+                                    li(class="task")=task.taskContent
+                                    button(type="submit" class="saveButton open-edit") Edit
+                                div.edit-buttons-div
+                                    button(type="submit" class="saveButton") Delete
+                                    button(type="submit" class="saveButton close-edit-buttons-div") ^

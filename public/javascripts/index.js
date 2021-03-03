@@ -59,11 +59,4 @@ window.addEventListener("load", (event) => {
         logo.setAttribute("src", "../images/default-logo.png")
     });
 
-    // editButton.addEventListener("click", () => {
-    //     let myNewListItem = document.createElement('li');
-    //     myNewListItem.innerHTML='hey';
-    //     taskList.appendChild(myNewListItem);
-        
-    // });
-
 });

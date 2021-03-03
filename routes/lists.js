@@ -76,7 +76,7 @@ router.get(`/:userListId(\\d+)`, asyncHandler(async (req, res) => {
     res.render('list', { lists, allTasks, userId, user, trashList, currentListName });
   } else {
     const userId = req.session.auth.userId;
-    const user = await db.User.findOne({ where: { userId } });
+    const user = await db.User.findOne({ where: { id: userId } });
     const userListId = req.params.userListId;
 
     const lists = await db.UserList.findAll({ where: { userId, listName: {[op.not]: 'Trash'} } });
