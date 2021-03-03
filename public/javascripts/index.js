@@ -18,12 +18,13 @@ window.addEventListener("load", (event) => {
 
 
     // SET DEMO USER CREDENTIALS WHEN DEMO BUTTON IS CLICKED
+    if(demoLoginButton){
     demoLoginButton.addEventListener('click', () => {
         usernameField.value = 'demo';
         passwordField.value = 'password';
-    });
+    })};
 
-    //    SET THE EDIT BUTTON DIVS TO INVISIBLE
+    // SET THE EDIT BUTTON DIVS TO INVISIBLE
     editButtonsDivs.forEach(editButtonsDiv => {
             editButtonsDiv.style.display = 'none'
     });

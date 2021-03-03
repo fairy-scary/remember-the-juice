@@ -39,13 +39,7 @@ block content
             div.lists
                 p.main_left_menu_title Lists
                 ul
-                    if !userId
-                        li(class='li-left-menu' onclick='location.href="../users"') All
-                        each listName in lists
-                            li(class='li-left-menu' onclick=`location.href="../lists/${listName.id}"`)= listName.listName
-                        li(class='li-left-menu' onclick=`location.href="../lists/${trashList.id}"`) Trash
-                    else 
-                        li(class='li-left-menu' onclick='location.href="../demo"') All
+                    li(class='li-left-menu' onclick='location.href="../profile"') All
                         each listName in lists
                             li(class='li-left-menu' onclick=`location.href="../lists/${listName.id}"`)= listName.listName
                         li(class='li-left-menu' onclick=`location.href="../lists/${trashList.id}"`) Trash
