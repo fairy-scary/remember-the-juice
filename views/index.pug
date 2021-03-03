@@ -12,14 +12,14 @@ block content
       div(class="authForms")
           form(method="post" action="/")
             input(type='hidden' name='_csrf' value=csrfToken)
-            input(type="text" name="username" placeholder="USERNAME ..." required)
+            input(type="text" name="username" placeholder="USERNAME ..." id='username-field' required)
             br
-            input(type="password" name="password" placeholder="PASSWORD ..." required)
+            input(type="password" name="password" placeholder="PASSWORD ..." id='password-field' required)
             if errors
               ul
                 each error in errors
                   li= error
             div(class="authFooter")
               button(class="loginButton" type="submit") Login
-              button(class="demoButton" type="button" onclick="location.href='/demo'") Demo Login
+              button(class="demoButton" type="submit" id='demo-button') Demo Login
               button(class="signUpButton" type="submit" onclick="location.href='/users/signup'") Sign Up
