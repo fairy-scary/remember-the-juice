@@ -11,7 +11,6 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const profileRouter = require('./routes/profile');
 const listRouter = require('./routes/lists');
-// const demoRouter = require('./routes/demo');
 const logoutRouter = require('./routes/logout');
 const tasksRouter = require('./routes/tasks');
 
@@ -56,7 +55,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/profile', profileRouter);
 app.use('/lists', listRouter);
-// app.use('/demo', demoRouter);
 app.use('/logout', logoutRouter);
 app.use('/tasks', tasksRouter);
 
