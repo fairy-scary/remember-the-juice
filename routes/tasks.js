@@ -3,31 +3,12 @@ const router = express.Router();
 const db = require('../db/models');
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
-// Create a new task. Saves to Personal list, redirects to /users unless demo
+// Create a new task
 router.post('/', asyncHandler(async (req, res) => {
-    // if there's no req.session.auth, then userId is hard coded to be demo's userId. 
-    //Else, userId is received from session
+  
     const { listName } = req.body;
     const userListId = listName;
-    if (!req.session.auth) {
-        const user = await db.User.findOne({ where: { username: 'demo' } });
-        const userId = user.id;
-        // const id = await db.UserList.findOne({
-        //     where: {
-        //         [op.and]: [
-        //             { userId: userId },
-        //             { userListId: 'Personal' },
-        //         ],
-        //     },
-        // });
-        // const userListId = id.id
-        const { taskContent } = req.body
-        const task = await db.Task.build({ taskContent, userId, userListId });
-        await task.save()
-
-        res.redirect(`/demo`);
-    } else {
-        const userId = req.session.auth.userId;
+    const userId = req.session.auth.userId;
         // const id = await db.UserList.findOne({
         //     where: {
         //         [op.and]: [
@@ -38,12 +19,23 @@ router.post('/', asyncHandler(async (req, res) => {
         // });
         // const userListId = id.id
 
-        const { taskContent } = req.body
-        const task = await db.Task.build({ taskContent, userId, userListId });
-        await task.save()
+    const { taskContent } = req.body
+    const task = await db.Task.build({ taskContent, userId, userListId });
+    await task.save()
 
-        res.redirect(`/users`)
-    }
+    res.redirect(`/profile`)
+
 }));
+
+router.delete('/delete/:userListId(\\d+)', asyncHandler(async (req, res) => {
+  
+    const userId = req.session.auth.userId;
+    const { taskId } = req.body;
+    await db.Task.destroy({ where: { userId, id: taskId} });
+    res.json(taskId)
+
+}));
+
+
 
 module.exports = router;

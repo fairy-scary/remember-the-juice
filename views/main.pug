@@ -7,6 +7,7 @@ append head
   link(rel="stylesheet" href="/stylesheets/strawberry.css" id="flavor")
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
+  script(src="/javascripts/tasks.js" type="module" defer)
 
 block content
     div.navbar
@@ -80,5 +81,5 @@ block content
                                     li(class="task")=task.taskContent
                                     button(type="submit" class="saveButton open-edit") Edit
                                 div.edit-buttons-div
-                                    button(type="submit" class="saveButton") Delete
-                                    button(type="submit" class="saveButton close-edit-buttons-div") ^
+                                    button(class="saveButton delete-button" value=task.id) Delete
+                                    button(class="saveButton close-edit-buttons-div") ^
