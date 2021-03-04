@@ -35,11 +35,13 @@ window.addEventListener("load", (event) => {
        
     for (let i=0; i<tasks.length; i++){
         openEditButtons[i].addEventListener('click', () => {
-            editButtonsDivs[i].style.display = ''
+            editButtonsDivs[i].style.display = '';
+            openEditButtons[i].style.display = 'none';
         });
 
         closeEditButtonsDivs[i].addEventListener('click', () => {
-            editButtonsDivs[i].style.display = 'none'
+            editButtonsDivs[i].style.display = 'none';
+            openEditButtons[i].style.display = '';
         });
     }
  
