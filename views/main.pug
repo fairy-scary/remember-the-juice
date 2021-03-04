@@ -11,7 +11,7 @@ append head
 block content
     div.navbar
         div.navbar_hamburger Logout
-            a(href="/logout")
+            a(href="users/logout")
                 img(src="../images/hamburger-white.png" style="width: 30px; opacity: .80")         
         div
             //- img(src="../images/search.png" class="search_glass" style="width: 35px; opacity: .80")
@@ -33,19 +33,14 @@ block content
                 a(href="#" id="strawberry")
                     img(src="../images/strawberry.png" id="strawberry" class="navbar_themes")
 
+    //- FROM PROFILE.JS
     div.main
         div.main_left
             img(src="../images/default-logo.png" id="logo" class="logoSmall")
             div.lists
                 p.main_left_menu_title Lists
                 ul
-                    if !userId
-                        li(class='li-left-menu' onclick='location.href="../users"') All
-                        each listName in lists
-                            li(class='li-left-menu' onclick=`location.href="../lists/${listName.id}"`)= listName.listName
-                        li(class='li-left-menu' onclick=`location.href="../lists/${trashList.id}"`) Trash
-                    else 
-                        li(class='li-left-menu' onclick='location.href="../demo"') All
+                    li(class='li-left-menu' onclick='location.href="../profile"') All
                         each listName in lists
                             li(class='li-left-menu' onclick=`location.href="../lists/${listName.id}"`)= listName.listName
                         li(class='li-left-menu' onclick=`location.href="../lists/${trashList.id}"`) Trash
@@ -81,4 +76,9 @@ block content
                     div.tasks
                         ol
                             each task in allTasks
-                                li(class="task")=task.taskContent
+                                div.task-div
+                                    li(class="task")=task.taskContent
+                                    button(type="submit" class="saveButton open-edit") Edit
+                                div.edit-buttons-div
+                                    button(type="submit" class="saveButton") Delete
+                                    button(type="submit" class="saveButton close-edit-buttons-div") ^

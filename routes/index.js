@@ -33,7 +33,8 @@ const loginValidators = [
 // After 'login' button is clicked
 router.post('/', csrfProtection, loginValidators,
   asyncHandler(async (req, res) => {
-    const { username, password } = req.body;
+
+    const { username, password} = req.body;
 
     let errors = [];
     const validatorErrors = validationResult(req);
@@ -48,7 +49,7 @@ router.post('/', csrfProtection, loginValidators,
 
         if (passwordMatch) {
           loginUser(req, res, user);
-          req.session.save(err => { res.redirect(`/users`) })
+          req.session.save(err => { res.redirect(`/profile`) })
           return;
         }
       }

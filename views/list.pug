@@ -11,7 +11,7 @@ append head
 block content
     div.navbar
         div.navbar_hamburger Logout
-            a(href="/logout")
+            a(href="users/logout")
                 img(src="../images/hamburger-white.png" style="width: 30px; opacity: .80")
                
         //- div.navbar_searchbar
@@ -41,17 +41,10 @@ block content
             div.lists
                 p.main_left_menu_title Lists
                 ul
-                    if !userId
-                        li(class='li-left-menu' onclick='location.href="../users"') All
+                    li(class='li-left-menu' onclick='location.href="../profile"') All
                         each listName in lists
                             li(class='li-left-menu' onclick=`location.href="../lists/${listName.id}"`)= listName.listName
                         li(class='li-left-menu' onclick=`location.href="../lists/${trashList.id}"`) Trash
-                    else 
-                        li(class='li-left-menu' onclick='location.href="../demo"') All
-                        each listName in lists
-                            li(class='li-left-menu' onclick=`location.href="../lists/${listName.id}"`)= listName.listName
-                        li(class='li-left-menu' onclick=`location.href="../lists/${trashList.id}"`) Trash
-                div.new_list
                 form(method="post" action=`/lists`)
                     input(type="text" name="listName" class="add_list_form" placeholder="CREATE LIST...")
                     button(type="submit" class="saveButton") Add
@@ -63,6 +56,7 @@ block content
                     button(type="submit" class="saveButton") Delete List
 
 
+        //- FROM LISTS.JS
         div.main_right
             div.main_right_topbox
                 div.inbox
@@ -81,9 +75,12 @@ block content
                     button(type="submit" class="saveButton") Save to List
                 if allTasks
                     div.tasks
-                        ol(id='task-list')
+                        ol
                             each task in allTasks
-                                li(class="task")=task.taskContent
-                                //- button(type="submit" class="saveButton edit") Edit
-                                //- button(type="submit" class="saveButton test") Test
+                                div.task-div
+                                    li(class="task")=task.taskContent
+                                    button(type="submit" class="saveButton open-edit") Edit
+                                div.edit-buttons-div
+                                    button(type="submit" class="saveButton") Delete
+                                    button(type="submit" class="saveButton close-edit-buttons-div") ^
 

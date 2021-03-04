@@ -1,12 +1,12 @@
 var express = require('express');
-var router = express.Router();
+const router = express.Router();
 const csrf = require('csurf');
 const { check, validationResult } = require('express-validator');
 
 const db = require('../db/models');
 const sequelize = require('sequelize');
 const op = sequelize.Op
-const { loginUser, requireAuth } = require('../auth');
+const { loginUser, logoutUser } = require('../auth');
 
 const csrfProtection = csrf({ cookie: true });
 
@@ -95,7 +95,7 @@ router.post('/signup', csrfProtection, userValidators,
       await db.UserList.create({ listName: 'Personal', userId: user.id });
       await db.UserList.create({ listName: 'Trash', userId: user.id });
       loginUser(req, res, user);
-      res.redirect(`/users`);
+      res.redirect(`/profile`);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render('signup', {
@@ -109,19 +109,12 @@ router.post('/signup', csrfProtection, userValidators,
   }));
 
 
-// User profile page after login. Displays all lists and all tasks.
-router.get(`/`, requireAuth, asyncHandler(async (req, res) => {
-  const userId = req.session.auth.userId;
-  const user = await db.User.findOne({ where: { id: userId } });
-  const lists = await db.UserList.findAll({ where: { userId, listName: {[op.not]: 'Trash'}} });
-  const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}})
-  const trashListId = trashList.id;
+// Logout 
+router.get('/logout', (req, res) => {
+    logoutUser(req, res);
+    res.render('logout');
+});
 
-  // GET ALL TASKS EXCEPT TASKS IN TRASH
-  const allTasks = await db.Task.findAll({ where: { userId, userListId: {[op.not]: trashListId} } });
-
-  res.render('main', { user, lists, allTasks, userId, trashList })
-}));
 
 
 
