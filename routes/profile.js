@@ -9,7 +9,7 @@ const { requireAuth } = require('../auth');
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
 
-// User profile page after login. Displays all lists and all tasks.
+// User profile page after login. Displays all lists left menu and all tasks.
 router.get(`/`, requireAuth, asyncHandler(async (req, res) => {
   const userId = req.session.auth.userId;
   const user = await db.User.findOne({ where: { id: userId } });
@@ -17,7 +17,7 @@ router.get(`/`, requireAuth, asyncHandler(async (req, res) => {
   const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}})
   const trashListId = trashList.id;
 
-  // GET ALL TASKS EXCEPT TASKS IN TRASH
+  // GET ALL TASKS EXCEPT TASKS IN TRASH TO DISPLAY IN MAIN AREA
   const allTasks = await db.Task.findAll({ where: { userId, userListId: {[op.not]: trashListId} } });
 
   res.render('main', { user, lists, allTasks, userId, trashList })
