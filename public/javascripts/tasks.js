@@ -12,7 +12,7 @@ window.addEventListener("load", (event) => {
         for (let i=0; i<deleteTaskButtons.length; i++){
             deleteTaskButtons[i].addEventListener('click', () => {
 
-            fetch(`tasks/test/${deleteTaskButtons[i].value}`, {
+            fetch(`/tasks/delete/${deleteTaskButtons[i].value}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"
