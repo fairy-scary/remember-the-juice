@@ -11,7 +11,6 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const profileRouter = require('./routes/profile');
 const listRouter = require('./routes/lists');
-const logoutRouter = require('./routes/logout');
 const tasksRouter = require('./routes/tasks');
 
 const { sessionSecret } = require('./config');
@@ -55,7 +54,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/profile', profileRouter);
 app.use('/lists', listRouter);
-app.use('/logout', logoutRouter);
 app.use('/tasks', tasksRouter);
 
 // catch 404 and forward to error handler
