@@ -54,7 +54,7 @@ router.get(`/:userListId(\\d+)`, requireAuth, asyncHandler(async (req, res) => {
   const user = await db.User.findOne({ where: { id: userId } });
   const userListId = req.params.userListId;
 
-  const lists = await db.UserList.findAll({ where: { userId, listName: {[op.not]: 'Trash'} } });
+  const lists = await db.UserList.findAll({ where: { userId, listName: {[op.not]: 'Trash'} }, order: [['listName', 'ASC']] });
   const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}});
 
   // GET ALL TASKS IN SPECIFIC LIST
