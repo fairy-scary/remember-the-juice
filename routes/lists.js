@@ -37,15 +37,6 @@ router.delete('/delete', requireAuth, asyncHandler(async (req, res) => {
     res.json({list, tasks})
 }));
 
-// router.post('/delete/', requireAuth, asyncHandler(async (req, res) => {
-  
-//     const userId = req.session.auth.userId;
-//     const { listName } = req.body;
-//     await db.Task.destroy({ where: { userId, userListId: listName } });
-//     await db.UserList.destroy({ where: { id: listName, userId } });
-//     res.redirect('/profile');
-
-// }));
 
 // When a list is clicked on in left side menu, display the tasks in that list
 router.get(`/:userListId(\\d+)`, requireAuth, asyncHandler(async (req, res) => {
