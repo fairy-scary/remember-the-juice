@@ -27,7 +27,7 @@ router.post('/', asyncHandler(async (req, res) => {
 
 }));
 
-router.delete('/delete/:userListId(\\d+)', asyncHandler(async (req, res) => {
+router.delete('/delete', asyncHandler(async (req, res) => {
   
     const userId = req.session.auth.userId;
     const { taskId } = req.body;

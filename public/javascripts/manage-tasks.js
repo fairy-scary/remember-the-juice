@@ -8,11 +8,11 @@ window.addEventListener("load", (event) => {
 
     // DELETE TASKS USING AJAX, UPDATE DOM UPON DELETE
     if(deleteTaskButtons){
-        console.log(deleteTaskButtons)
+        // console.log(deleteTaskButtons)
         for (let i=0; i<deleteTaskButtons.length; i++){
             deleteTaskButtons[i].addEventListener('click', () => {
 
-            fetch(`/tasks/delete/${deleteTaskButtons[i].value}`, {
+            fetch(`/tasks/delete`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"

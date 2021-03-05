@@ -7,7 +7,8 @@ append head
   link(rel="stylesheet" href="/stylesheets/strawberry.css" id="flavor")
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
-  script(src="/javascripts/tasks.js" type="module" defer)
+  script(src="/javascripts/manage-tasks.js" type="module" defer)
+  script(src="/javascripts/manage-lists.js" type="module" defer)
 
 block content
     div.navbar
@@ -43,18 +44,18 @@ block content
                 ul
                     li(class='li-left-menu' onclick='location.href="../profile"') All
                         each listName in lists
-                            li(class='li-left-menu' onclick=`location.href="../lists/${listName.id}"`)= listName.listName
+                            li(class='li-left-menu' onclick=`location.href="../lists/${listName.id}"` value=listName.id)= listName.listName
                         li(class='li-left-menu' onclick=`location.href="../lists/${trashList.id}"`) Trash
                 div.new_list
                 form(method="post" action=`/lists`)
                     input(type="text" name="listName" class="add_list_form" placeholder="CREATE LIST...")
                     button(type="submit" class="saveButton") Add
                 br
-                form(method="post" action="/lists/delete")
-                    select(name="listName" class="add_list_form")
+                form()
+                    select(name="listName" class="add_list_form left-li-select")
                         each listName in lists
-                            option(value=listName.id)= listName.listName
-                    button(type="submit" class="saveButton") Delete List
+                            option(value=listName.id class='list-dropdown-items')= listName.listName
+                    button( class="saveButton" id='delete-list-button') Delete List
 
 
         div.main_right
@@ -62,9 +63,9 @@ block content
                 div.inbox
                     p(class="sum")= allTasks.length
                         if currentListName
-                            p.tasks_incomplete= 'Total Tasks In '+ currentListName.listName
+                            p(class='tasks_incomplete' id=currentListName.listName)= 'Total Tasks In '+ currentListName.listName
                         else 
-                            p.tasks_incomplete Total Tasks
+                            p(class='tasks_incomplete') Total Tasks
             div.main_right_bottombox
                 form(action=`/tasks` method="post")
                     input(type="text" name="taskContent" placeholder="ADD TASK HERE ..." class="add_task_form")
@@ -77,7 +78,8 @@ block content
                     div.tasks
                         ol
                             each task in allTasks
-                                div.task-div
+                                //- NEED ID TO MSTCH USERLISTID IN ORDER TO DELETE IF LIST IS DELETED
+                                div(class='task-div' id=task.userListId)
                                     li(class="task")=task.taskContent
                                     button(type="submit" class="saveButton open-edit") v
                                 div.edit-buttons-div
