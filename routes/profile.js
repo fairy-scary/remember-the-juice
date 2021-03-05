@@ -13,7 +13,7 @@ const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).ca
 router.get(`/`, requireAuth, asyncHandler(async (req, res) => {
   const userId = req.session.auth.userId;
   const user = await db.User.findOne({ where: { id: userId } });
-  const lists = await db.UserList.findAll({ where: { userId, listName: {[op.not]: 'Trash'}} });
+  const lists = await db.UserList.findAll({ where: { userId, listName: {[op.not]: 'Trash'}}, order: [['listName', 'ASC']] });
   const trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}})
   const trashListId = trashList.id;
 

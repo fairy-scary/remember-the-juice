@@ -61,7 +61,7 @@ window.addEventListener("load", (event) => {
 
                 // SETS TOTAL TASKS SUM TO 0 & DELETES ALL TASKS ON PAGE IF PAGE IS 
                 // ON THE LIST THAT GOT DELETED, BUT IF ON 'ALL' PAGE, THEN SUBTRACTS 
-                // NUM OF TASKS DELETED FROM TOTAL AND ONLY DELETES TASKS FROM LIST
+                // NUM OF TASKS DELETED FROM TOTAL AND ONLY DELETE TASKS FROM LIST
                 // THAT GOT DELETED
                 allTotalTasks.forEach(totalTasks => {
                     if(!totalTasks.id){
@@ -73,7 +73,7 @@ window.addEventListener("load", (event) => {
                                 editTasksDivs[i].remove();
                             }
                         }
-                    } else if (totalTasks.id === data.list.listName){
+                    } else if (totalTasks.innerText === 'Total Tasks In '+data.list.listName){
                         sum.innerText = 0
                         
                         for(let i=0; i<tasksDivs.length; i++){

@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/models');
+const { requireAuth } = require('../auth');
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
 // Create a new task
-router.post('/', asyncHandler(async (req, res) => {
+router.post('/', requireAuth, asyncHandler(async (req, res) => {
   
     const { listName } = req.body;
     const userListId = listName;
@@ -27,12 +28,13 @@ router.post('/', asyncHandler(async (req, res) => {
 
 }));
 
-router.delete('/delete', asyncHandler(async (req, res) => {
+router.delete('/delete', requireAuth, asyncHandler(async (req, res) => {
   
     const userId = req.session.auth.userId;
     const { taskId } = req.body;
+    let task = await db.Task.findOne({ where: { userId, id: taskId} });
     await db.Task.destroy({ where: { userId, id: taskId} });
-    res.json(taskId)
+    res.json(task)
 
 }));
 
