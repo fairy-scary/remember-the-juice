@@ -3,8 +3,11 @@ window.addEventListener("load", (event) => {
     let deleteTaskButtons = document.querySelectorAll('.delete-button');
     let tasksDivs = document.querySelectorAll('.task-div');
     let editTasksDivs = document.querySelectorAll('.edit-buttons-div');
+    let allTotalTasks = document.querySelector('.tasks_incomplete');
+    let sum = document.querySelector('.sum');
 
 
+    console.log(allTotalTasks.id, 'outside')
 
     // DELETE TASKS USING AJAX, UPDATE DOM UPON DELETE
     if(deleteTaskButtons){
@@ -28,8 +31,11 @@ window.addEventListener("load", (event) => {
                 return res.json();
             })
             .then(function(data) {
-                // console.log(data)
                 // tasks[i].remove();
+                if(allTotalTasks.id === data.userListId || !allTotalTasks.id){
+                    sum.innerText-=1
+                }
+                
                 tasksDivs[i].remove();
                 editTasksDivs[i].remove();
               

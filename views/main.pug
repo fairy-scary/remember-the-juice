@@ -63,7 +63,7 @@ block content
                 div.inbox
                     p(class="sum")= allTasks.length
                         if currentListName
-                            p(class='tasks_incomplete' id=currentListName.listName)= 'Total Tasks In '+ currentListName.listName
+                            p(class='tasks_incomplete' id=currentListName.id)= 'Total Tasks In '+ currentListName.listName
                         else 
                             p(class='tasks_incomplete') Total Tasks
             div.main_right_bottombox
