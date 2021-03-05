@@ -7,7 +7,7 @@ window.addEventListener("load", (event) => {
     let sum = document.querySelector('.sum');
 
 
-    console.log(allTotalTasks.id, 'outside')
+
 
     // DELETE TASKS USING AJAX, UPDATE DOM UPON DELETE
     if(deleteTaskButtons){

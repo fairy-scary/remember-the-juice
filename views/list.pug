@@ -13,7 +13,7 @@ append head
 block content
     div.navbar
         div.navbar_hamburger Logout
-            a(href="users/logout")
+            a(href="/users/logout")
                 img(src="../images/hamburger-white.png" style="width: 30px; opacity: .80")
                
         //- div.navbar_searchbar
@@ -83,7 +83,7 @@ block content
                                 div(class='task-div' id=task.userListId)
                                     li(class="task")=task.taskContent
                                     button(type="submit" class="saveButton open-edit") v
-                                div.edit-buttons-div
+                                div(class='edit-buttons-div' style="display: none")
                                     button(class="saveButton delete-button" value=task.id) Delete
                                     button(class="saveButton close-edit-buttons-div") ^
 

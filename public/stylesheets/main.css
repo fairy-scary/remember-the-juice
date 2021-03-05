@@ -129,7 +129,7 @@ li {
 }
 
 .task {
-  font-family: "Lilita One", cursive;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 22px;
 }
 
@@ -144,7 +144,7 @@ select {
 }
 
 .sum {
-  font-family: "Lilita One", cursive;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 50px;
   color: rgba(255, 255, 255, 0.95);
   margin: 0px 0px 0px 0px;
