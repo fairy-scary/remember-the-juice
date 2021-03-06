@@ -3,7 +3,7 @@
 <br />
 <p align="center"  style='margin-top: -40px; margin-bottom: -10px;'>
   <a href="https://github.com/fairy-scary/remember-the-juice">
-    <img src="./public/images/default-logo.png" alt="logo" width="150" height="100" style="object-fit: contain">
+    <img src="./public/images/default-logo.png" alt="logo" width="100" height="100" style="object-fit: contain">
   </a>
 
   <p align="center">
@@ -41,7 +41,7 @@
 
 Remember The Juice is a Full Stack Web Application for users to organize their life by allowing easy creation and managagement of tasks / task lists. The app also features beautiful themes for users to choose from as a way to customize the app, and make it their own.
 
-This application features a HTML, CSS frontend, rendered along with Pug.js and an Express.js backend that serves all data from the database.
+This application features a HTML, CSS frontend, rendered along with Pug.js, and AJAX for a dynamic frontend user experience. Express.js is used in the backend, which serves all data from the database.
 
 <br />
 <details open="open">
