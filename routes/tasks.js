@@ -5,26 +5,25 @@ const { requireAuth } = require('../auth');
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
 // Create a new task
-router.post('/', requireAuth, asyncHandler(async (req, res) => {
+router.post('/create', requireAuth, asyncHandler(async (req, res) => {
   
-    const { listName } = req.body;
-    const userListId = listName;
+    //     // const id = await db.UserList.findOne({
+    //     //     where: {
+    //     //         [op.and]: [
+    //     //             { userId: userId },
+    //     //             { listName: 'Personal' },
+    //     //         ],
+    //     //     },
+    //     // });
+    //     // const userListId = id.id
+
+    const { taskContent, userListId } = req.body;
     const userId = req.session.auth.userId;
-        // const id = await db.UserList.findOne({
-        //     where: {
-        //         [op.and]: [
-        //             { userId: userId },
-        //             { listName: 'Personal' },
-        //         ],
-        //     },
-        // });
-        // const userListId = id.id
 
-    const { taskContent } = req.body
     const task = await db.Task.build({ taskContent, userId, userListId });
-    await task.save()
-
-    res.redirect(`/profile`)
+    await task.save();
+    res.json(task)
+ 
 
 }));
 

@@ -58,7 +58,7 @@ li {
 }
 
 .main_left_menu_title {
-  font-size: 22px;
+  font-size: 24px;
   color: #157afd;
   font-weight: 700;
   margin: 0px 0px 10px 0px;
@@ -121,9 +121,10 @@ li {
 
 .tasks {
   display: grid;
+  width: 98%;
   grid-template-rows: 0px 20px 20px 1fr;
   font-size: 16px;
-  margin: 35px 0px 0px 0px;
+  margin: 35px 35px 0px 0px;
   font-size: 16px;
   padding: 2px;
 }

@@ -42,7 +42,7 @@
 }
 
 .add_task_form {
-  width: 300px;
+  width: 96.5%;
   height: 50px;
   background-color: #cfe5a5;
   border: 0px;
@@ -53,6 +53,8 @@
   color: hsl(214, 98%, 54%);
   margin-top: 10px;
   box-sizing: border-box;
+  margin-left: 25px;
+  margin-right: 35px;
 }
 
 .add_task_form:hover {

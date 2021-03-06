@@ -66,24 +66,27 @@ block content
                         if currentListName
                             p(class='tasks_incomplete' id=currentListName.id)= 'Total Tasks In '+ currentListName.listName
                         else 
-                            p(class='tasks_incomplete') Total Tasks
+                            p(class='tasks_incomplete') Total Tasks In All
             div.main_right_bottombox
-                form(action=`/tasks` method="post")
-                    input(type="text" name="taskContent" placeholder="ADD TASK HERE ..." class="add_task_form")
-                    select(name="listName" class="dropdown")
-                        each listName in lists
-                            option(value=listName.id)= listName.listName
-                    br
-                    button(type="submit" class="saveButton") Save to List
+                if currentListName
+                    h3(id='create-task-error' style="margin-left: 35px; display:none") Task can't be empty. Please try again.
+                    form(class='select-add-task-form')
+                        input(type="text" name="taskContent" placeholder=`ADD TASK TO ${currentListName.listName.toUpperCase()} HERE ...` class="add_task_form add-task-input" id=currentListName.id)
+                        //- select(name="listName" class="dropdown")
+                        //-     each listName in lists
+                        //-         option(value=listName.id)= listName.listName
+                        //- br
+                        button(type="submit" class="saveButton add-task-button" style="display: none")
                 if allTasks
                     div.tasks
-                        ol
+                        ol.ordered-list
                             each task in allTasks
                                 //- NEED ID TO MSTCH USERLISTID IN ORDER TO DELETE IF LIST IS DELETED
-                                div(class='task-div' id=task.userListId)
-                                    li(class="task")=task.taskContent
-                                    button(type="submit" class="saveButton open-edit") v
-                                div(class='edit-buttons-div' style="display: none")
-                                    button(class="saveButton delete-button" value=task.id) Delete
-                                    button(class="saveButton close-edit-buttons-div") ^
+                                div.task-container
+                                    div(class='task-div' id=task.userListId)
+                                        li(class="task")=task.taskContent
+                                        button(type="submit" class="saveButton open-edit") v
+                                    div(class='edit-buttons-div' style="display: none")
+                                        button(class="saveButton delete-button" value=task.id) Delete
+                                        button(class="saveButton close-edit-buttons-div") ^
 
