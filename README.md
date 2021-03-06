@@ -3,7 +3,7 @@
 <br />
 <p align="center"  style='margin-top: -40px; margin-bottom: -10px;'>
   <a href="https://github.com/fairy-scary/remember-the-juice">
-    <img src="./public/images/default-logo.png" alt="logo" width="100" height="100" style="object-fit: contain">
+    <img src="./public/images/default-logo.png" alt="logo" width="100%" height="100%" style="object-fit: contain">
   </a>
 
   <p align="center">
