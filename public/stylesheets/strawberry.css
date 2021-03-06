@@ -22,15 +22,11 @@
   border: 0px;
   border-radius: 5px;
   padding: 10px;
-  font-family: "Lilita One", cursive;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 20px;
   color: #157afd;
   margin: 0px 0px 2px 0px;
   box-sizing: border-box;
-}
-
-.add_list_form:hover {
-  border: 1px solid #157afd;
 }
 
 .main_right_topbox {
@@ -42,17 +38,19 @@
 }
 
 .add_task_form {
-  width: 300px;
+  width: 96.5%;
   height: 50px;
   background-color: #c0ebe0;
   border: 0px;
   border-radius: 5px;
   padding: 10px;
-  font-family: "Lilita One", cursive;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 25px;
   color: #157afd;
   margin-top: 10px;
   box-sizing: border-box;
+  margin-left: 25px;
+  margin-right: 35px;
 }
 
 .add_task_form:hover {
@@ -62,7 +60,7 @@
 .dropdown {
   height: 50px;
   margin-top: 10px;
-  font-family: "Lilita One", cursive;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 30px;
   background-color: #68cdad;
   color: rgba(255, 255, 255, 0.75);

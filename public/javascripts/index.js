@@ -24,10 +24,6 @@ window.addEventListener("load", (event) => {
         passwordField.value = 'password';
     })};
 
-    // SET THE EDIT BUTTON DIVS TO INVISIBLE
-    editButtonsDivs.forEach(editButtonsDiv => {
-            editButtonsDiv.style.display = 'none'
-    });
 
     // LOOP THROUGH TASKS AND SET CORRESPONDING EDIT BUTTON TO MAKE EDIT
     // BUTTONS DIV VISIBLE UPON CLICK OF EDIT BUTTON, AND INVISIBLE UPON
