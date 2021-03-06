@@ -2,15 +2,9 @@ import {editTaskMovement} from './index.js';
 import {deleteTaskFunction} from './delete-tasks.js';
 window.addEventListener("load", (event) => {
 
-    // let deleteTaskButtons = document.querySelectorAll('.delete-button');
-    // let tasksDivs = document.querySelectorAll('.task-div');
-    // let editTasksDivs = document.querySelectorAll('.edit-buttons-div');
-    // let allTotalTasks = document.querySelector('.tasks_incomplete');
-    // let sum = document.querySelector('.sum');
-
+    let sum = document.querySelector('.sum');
     let addTaskInput = document.querySelector('.add-task-input');
     let addTaskForm = document.querySelector('.select-add-task-form');
-
     //NEED TO BUILD NEW TASK CONTAINER
     let orderedList = document.querySelector('.ordered-list');
 
@@ -43,7 +37,7 @@ window.addEventListener("load", (event) => {
                 return res.json();
             })
             .then(function(data) {
-                console.log(data.taskContent, 'data')
+                // console.log(data.taskContent, 'data')
                 console.log(data, 'data')
 
                 // CREATE NEW TASK CONTAINER ELEMENTS
@@ -59,7 +53,7 @@ window.addEventListener("load", (event) => {
                 // SET ALL ATTRIBUTES
                 taskContainer.setAttribute('class', 'task-container');
                 taskDiv.setAttribute('class', 'task-div');
-                taskDiv.setAttribute('id', data.userListId);
+                taskDiv.setAttribute('id', userListId);
                 newTask.setAttribute('class', 'task');
                 openEditButton.setAttribute('class', 'saveButton open-edit');
                 openEditButton.setAttribute('type', 'submit');
@@ -70,9 +64,9 @@ window.addEventListener("load", (event) => {
                 closeEditButtonsDiv.setAttribute('class', 'saveButton close-edit-buttons-div');
 
                 // SET VALUES AND INNER TEXT
-                newTask.innerHTML = data.taskContent;
+                newTask.innerHTML = data.task.taskContent;
                 openEditButton.innerText= 'v';
-                deleteTaskButton.value=data.id;
+                deleteTaskButton.value=data.task.id;
                 deleteTaskButton.innerText= 'Delete';
                 closeEditButtonsDiv.innerText= '^';
 
@@ -91,49 +85,11 @@ window.addEventListener("load", (event) => {
                 let deleteTaskButtons = document.querySelectorAll('.delete-button');
 
                 deleteTaskFunction(deleteTaskButtons);
-
+                
+                // UPDATE SUM
+                sum.innerText=data.allTasksInCurrentList.length
             })
         }    
     })
-
-
-
-
-    // // DELETE TASKS USING AJAX, UPDATE DOM UPON DELETE
-    // if(deleteTaskButtons){
-    //     console.log(deleteTaskButtons)
-    //     for (let i=0; i<deleteTaskButtons.length; i++){
-    //         deleteTaskButtons[i].addEventListener('click', () => {
-
-    //         fetch(`/tasks/delete`, {
-    //             method: "DELETE",
-    //             headers: {
-    //                 "Content-Type": "application/json"
-    //             },
-    //             body: JSON.stringify({
-    //             taskId: deleteTaskButtons[i].value
-    //             })
-    //         })
-    //         .then(function(res) {
-    //             if (!res.ok) {
-    //                 throw Error(res.statusText); // handle any potential server errors
-    //             }
-    //             return res.json();
-    //         })
-    //         .then(function(data) {
-    //             // tasks[i].remove();
-    //             if(allTotalTasks.id === data.userListId || !allTotalTasks.id){
-    //                 sum.innerText-=1
-    //             }
-                
-    //             tasksDivs[i].remove();
-    //             editTasksDivs[i].remove();
-              
-    //         })
-    //         .catch(function(error) {
-    //             console.log(error)
-    //         });
-    //     })};
-    // };
 });
 

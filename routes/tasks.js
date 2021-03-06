@@ -22,18 +22,24 @@ router.post('/create', requireAuth, asyncHandler(async (req, res) => {
 
     const task = await db.Task.build({ taskContent, userId, userListId });
     await task.save();
-    res.json(task)
- 
-
+    const allTasksInCurrentList = await db.Task.findAll({ where: { userId, userListId }});
+    res.json({task, allTasksInCurrentList})
 }));
 
 router.delete('/delete', requireAuth, asyncHandler(async (req, res) => {
   
     const userId = req.session.auth.userId;
-    const { taskId } = req.body;
+    const { taskId, userListId } = req.body;
     let task = await db.Task.findOne({ where: { userId, id: taskId} });
     await db.Task.destroy({ where: { userId, id: taskId} });
-    res.json(task)
+    
+    let allTasksInCurrentList;
+    if(userListId){
+        allTasksInCurrentList = await db.Task.findAll({ where: { userId, userListId }});
+    }
+    
+
+    res.json({task, allTasksInCurrentList})
 
 }));
 

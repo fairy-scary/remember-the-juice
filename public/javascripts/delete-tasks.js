@@ -5,11 +5,12 @@ export const deleteTaskFunction = (deleteTaskButtons) => {
         deleteTaskButtons = document.querySelectorAll('.delete-button');
         let tasksDivs = document.querySelectorAll('.task-div');
         let editTasksDivs = document.querySelectorAll('.edit-buttons-div');
-        let allTotalTasks = document.querySelector('.tasks_incomplete');
-        let sum = document.querySelector('.sum');
-        console.log(deleteTaskButtons)
+      
+       
         for (let i=0; i<deleteTaskButtons.length; i++){
             deleteTaskButtons[i].addEventListener('click', () => {
+                let allTotalTasks = document.querySelector('.tasks_incomplete');
+                let sum = document.querySelector('.sum');
 
             fetch(`/tasks/delete`, {
                 method: "DELETE",
@@ -17,7 +18,8 @@ export const deleteTaskFunction = (deleteTaskButtons) => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                taskId: deleteTaskButtons[i].value
+                taskId: deleteTaskButtons[i].value,
+                userListId: allTotalTasks.id
                 })
             })
             .then(function(res) {
@@ -28,8 +30,10 @@ export const deleteTaskFunction = (deleteTaskButtons) => {
             })
             .then(function(data) {
                 // tasks[i].remove();
-                if(allTotalTasks.id === data.userListId || !allTotalTasks.id){
-                    sum.innerText-=1
+                if(Number(allTotalTasks.id) === data.task.userListId){
+                    sum.innerText = data.allTasksInCurrentList.length;
+                } else if (!allTotalTasks.id){
+                    sum.innerText--;
                 }
                 
                 tasksDivs[i].remove();
