@@ -1,3 +1,26 @@
+export const editTaskMovement = () => {
+        let tasks = document.querySelectorAll('.task');
+        let openEditButtons = document.querySelectorAll('.open-edit');
+        let editButtonsDivs = document.querySelectorAll('.edit-buttons-div');
+        let closeEditButtonsDivs = document.querySelectorAll('.close-edit-buttons-div');
+
+        // LOOP THROUGH TASKS AND SET CORRESPONDING EDIT BUTTON TO MAKE EDIT
+        // BUTTONS DIV VISIBLE UPON CLICK OF EDIT BUTTON, AND INVISIBLE UPON
+        // CLICK OF CLOSE EDIT BUTTON
+       
+        for (let i=0; i<tasks.length; i++){
+            openEditButtons[i].addEventListener('click', () => {
+                editButtonsDivs[i].style.display = '';
+                openEditButtons[i].style.display = 'none';
+            });
+
+            closeEditButtonsDivs[i].addEventListener('click', () => {
+                editButtonsDivs[i].style.display = 'none';
+                openEditButtons[i].style.display = '';
+            });
+        }
+};
+
 window.addEventListener("load", (event) => {
     let demoLoginButton = document.getElementById('demo-button');
     let usernameField = document.getElementById('username-field');
@@ -10,11 +33,6 @@ window.addEventListener("load", (event) => {
     let orange = document.getElementById("orange");
     let grape = document.getElementById("grape");
     let strawberry = document.getElementById("strawberry");
-    
-    let tasks = document.querySelectorAll('.task');
-    let openEditButtons = document.querySelectorAll('.open-edit');
-    let editButtonsDivs = document.querySelectorAll('.edit-buttons-div');
-    let closeEditButtonsDivs = document.querySelectorAll('.close-edit-buttons-div');
 
 
     // SET DEMO USER CREDENTIALS WHEN DEMO BUTTON IS CLICKED
@@ -24,24 +42,7 @@ window.addEventListener("load", (event) => {
         passwordField.value = 'password';
     })};
 
-
-    // LOOP THROUGH TASKS AND SET CORRESPONDING EDIT BUTTON TO MAKE EDIT
-    // BUTTONS DIV VISIBLE UPON CLICK OF EDIT BUTTON, AND INVISIBLE UPON
-    // CLICK OF CLOSE EDIT BUTTON
-       
-    for (let i=0; i<tasks.length; i++){
-        openEditButtons[i].addEventListener('click', () => {
-            editButtonsDivs[i].style.display = '';
-            openEditButtons[i].style.display = 'none';
-        });
-
-        closeEditButtonsDivs[i].addEventListener('click', () => {
-            editButtonsDivs[i].style.display = 'none';
-            openEditButtons[i].style.display = '';
-        });
-    }
  
-
    
     apple.addEventListener("click", () => {
         cssRef.setAttribute('href', '/stylesheets/apple.css')
@@ -67,5 +68,7 @@ window.addEventListener("load", (event) => {
         cssRef.setAttribute('href', '/stylesheets/strawberry.css')
         logo.setAttribute("src", "../images/default-logo.png")
     });
+
+    editTaskMovement();
 
 });
