@@ -52,9 +52,15 @@ router.get(`/:userListId(\\d+)`, requireAuth, asyncHandler(async (req, res) => {
   const allTasks = await db.Task.findAll({ where: { userId, userListId } });
 
   // GET CURRENT LIST THAT IS CLICKED ON
-  const currentListName = await db.UserList.findOne({ where: { id: userListId } });
+  let currentListName = await db.UserList.findOne({ where: { id: userListId } });
+  if(currentListName.listName === 'Trash'){
+    let trash = currentListName;
+    let allTrashTasks = allTasks;
+    res.render('list', { lists, allTrashTasks, allTasks, user, trashList, trash });
+  } else {
+    res.render('list', { lists, allTasks, user, trashList, currentListName });
+  }
 
-  res.render('list', { lists, allTasks, user, trashList, currentListName });
 }));
 
 

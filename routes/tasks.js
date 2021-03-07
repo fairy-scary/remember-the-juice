@@ -26,6 +26,7 @@ router.post('/create', requireAuth, asyncHandler(async (req, res) => {
     res.json({task, allTasksInCurrentList})
 }));
 
+// PERMANENTLY DELETE A TASK
 router.delete('/delete', requireAuth, asyncHandler(async (req, res) => {
   
     const userId = req.session.auth.userId;
@@ -39,6 +40,28 @@ router.delete('/delete', requireAuth, asyncHandler(async (req, res) => {
     }
     
 
+    res.json({task, allTasksInCurrentList})
+
+}));
+
+
+router.post('/trash', requireAuth, asyncHandler(async (req, res) => {
+  
+    const userId = req.session.auth.userId;
+    const { taskId, userListId } = req.body;
+    let task = await db.Task.findOne({ where: { userId, id: taskId} });
+    let trashList = await db.UserList.findOne({where: {userId, listName: 'Trash'}});
+
+    const saveTask = await db.Task.build({ taskContent: task.taskContent, userId, userListId: trashList.id });
+    await saveTask.save();
+    await db.Task.destroy({ where: { userId, id: taskId} });
+    
+    // WILL HAVE USERLISTID IF USER IS ON PAGE VIEWING A SPECIFIC LIST. 
+    let allTasksInCurrentList;
+    if(userListId){
+        allTasksInCurrentList = await db.Task.findAll({ where: { userId, userListId }});
+    }
+    
     res.json({task, allTasksInCurrentList})
 
 }));

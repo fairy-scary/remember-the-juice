@@ -1,5 +1,5 @@
 import {editTaskMovement} from './index.js';
-import {deleteTaskFunction} from './delete-tasks.js';
+import {moveTaskToTrashFunction} from './move-to-trash.js';
 
 // ADD TASKS USING AJAX, UPDATE DOM UPON DELETE
 window.addEventListener("load", (event) => {
@@ -83,8 +83,8 @@ window.addEventListener("load", (event) => {
                     editTaskMovement();
 
                     // ALLOWS NEWLY ADDED TASK TO BE DELETED
-                    let deleteTaskButtons = document.querySelectorAll('.delete-button');
-                    deleteTaskFunction(deleteTaskButtons);
+                    let moveToTrashButtons = document.querySelectorAll('.move-to-trash-button');
+                    moveTaskToTrashFunction(moveToTrashButtons);
 
                     // UPDATE SUM
                     sum.innerText=data.allTasksInCurrentList.length
