@@ -1,7 +1,15 @@
 doctype html
-html
+html(lang=”en” prefix="og: http://ogp.me/ns#")
   head
       block head
+        meta(charset="utf-8")
+        meta(property="og:title" content="Remember The Juice")
+        meta(name="image" property="og:image" content="%PUBLIC_URL%/remember-the-juice.png")
+        meta(name="author" content="angelica wilson")
+        meta(property="og:description" content="Remember The Juice is a task app for people that don't have a lot to do.")
+        meta(property="og:url" content="https://remember-the-juice.herokuapp.com")
+        
+
         title="Remember the Juice"
         //- WHEN PAGE LOADS, CURSIVE IS DISPLAYED, THEN THE FONT CHANGES TO LILITA. DOESNT LOOK 
         //- THE BEST CHANGING THE FONT FOR NOW, WILL WILL CHANGE BACK AT LATER DATE
