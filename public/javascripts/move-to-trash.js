@@ -1,24 +1,23 @@
-
-// DELETE TASKS USING AJAX, UPDATE DOM UPON DELETE
-export const deleteTaskFunction = (deleteTaskButtons) => {
-    if(deleteTaskButtons){
-        deleteTaskButtons = document.querySelectorAll('.delete-button');
+// MOVE TASKS TO TRASH AND DELETE FROM CURRENT LIST USING AJAX, UPDATE DOM UPON DELETE
+export const moveTaskToTrashFunction = (moveToTrashButtons) => {
+    if(moveToTrashButtons){
+        moveToTrashButtons = document.querySelectorAll('.move-to-trash-button');
         let tasksDivs = document.querySelectorAll('.task-div');
         let editTasksDivs = document.querySelectorAll('.edit-buttons-div');
       
        
-        for (let i=0; i<deleteTaskButtons.length; i++){
-            deleteTaskButtons[i].addEventListener('click', () => {
+        for (let i=0; i<moveToTrashButtons.length; i++){
+            moveToTrashButtons[i].addEventListener('click', () => {
                 let allTotalTasks = document.querySelector('.tasks_incomplete');
                 let sum = document.querySelector('.sum');
 
-                fetch(`/tasks/delete`, {
-                    method: "DELETE",
+                fetch(`/tasks/trash`, {
+                    method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                    taskId: deleteTaskButtons[i].value,
+                    taskId: moveToTrashButtons[i].value,
                     // THERE IS NO ALLTOTALTASKS.ID IF ON ALL-HOME PAGE
                     userListId: allTotalTasks.id
                     })
@@ -51,8 +50,8 @@ export const deleteTaskFunction = (deleteTaskButtons) => {
 };
 
 window.addEventListener("load", (event) => {
-    let deleteTaskButtons = document.querySelectorAll('.delete-button');
+    let moveToTrashButtons = document.querySelectorAll('.move-to-trash-button');
 
-    deleteTaskFunction(deleteTaskButtons);
+    moveTaskToTrashFunction(moveToTrashButtons);
 
 });

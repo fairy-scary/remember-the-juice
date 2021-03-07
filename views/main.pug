@@ -75,15 +75,15 @@ block content
                 //-             option(value=listName.id)= listName.listName
                 //-     br
                 //-     button(type="submit" class="saveButton") Save to List
-                if currentListName
-                    h3(id='create-task-error' style="margin-left: 35px; display:none") Task can't be empty. Please try again.
-                    form(class='select-add-task-form')
-                        input(type="text" name="taskContent" placeholder=`ADD TASK TO ${currentListName.listName.toUpperCase()} HERE ...` class="add_task_form add-task-input" id=currentListName.id)
-                        //- select(name="listName" class="dropdown")
-                        //-     each listName in lists
-                        //-         option(value=listName.id)= listName.listName
-                        //- br
-                        button(type="submit" class="saveButton add-task-button" style="display: none")
+                //- if currentListName
+                //-     h3(id='create-task-error' style="margin-left: 35px; display:none") Task can't be empty. Please try again.
+                //-     form(class='select-add-task-form')
+                //-         input(type="text" name="taskContent" placeholder=`ADD TASK TO ${currentListName.listName.toUpperCase()} HERE ...` class="add_task_form add-task-input" id=currentListName.id)
+                //-         //- select(name="listName" class="dropdown")
+                //-         //-     each listName in lists
+                //-         //-         option(value=listName.id)= listName.listName
+                //-         //- br
+                //-         button(type="submit" class="saveButton add-task-button" style="display: none")
                 if allTasks
                     div.tasks
                         ol.ordered-list
@@ -94,5 +94,5 @@ block content
                                         li(class="task")=task.taskContent
                                         button(type="submit" class="saveButton open-edit") v
                                     div(class='edit-buttons-div' style="display: none")
-                                        button(class="saveButton delete-button" value=task.id) Delete
+                                        button(class="saveButton move-to-trash-button" value=task.id) Trash
                                         button(class="saveButton close-edit-buttons-div") ^

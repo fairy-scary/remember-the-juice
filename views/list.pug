@@ -10,6 +10,7 @@ append head
   script(src="/javascripts/manage-tasks.js" type="module" defer)
   script(src="/javascripts/manage-lists.js" type="module" defer)
   script(src="/javascripts/delete-tasks.js" type="module" defer)
+  script(src="/javascripts/move-to-trash.js" type="module" defer)
 
 block content
     div.navbar
@@ -66,8 +67,10 @@ block content
                     p(class="sum")= allTasks.length
                         if currentListName
                             p(class='tasks_incomplete' id=currentListName.id)= 'Total Tasks In '+ currentListName.listName
-                        else 
-                            p(class='tasks_incomplete') Total Tasks In All
+                        else if trash
+                            p(class='tasks_incomplete') Total Tasks In Trash
+                        else
+                            p(class='tasks_incomplete')
             div.main_right_bottombox
                 if currentListName
                     h3(id='create-task-error' style="margin-left: 35px; display:none") Task can't be empty. Please try again.
@@ -78,7 +81,20 @@ block content
                         //-         option(value=listName.id)= listName.listName
                         //- br
                         button(type="submit" class="saveButton add-task-button" style="display: none")
-                if allTasks
+                else if trash
+                    button(class="saveButton empty-trash" style='width: 25%') Permanently Delete All
+                if allTrashTasks
+                    div.tasks
+                        ol.ordered-list
+                            each task in allTrashTasks
+                                div.task-container
+                                    div(class='task-div' id=task.userListId)
+                                        li(class="task")=task.taskContent
+                                        button(type="submit" class="saveButton open-edit") v
+                                    div(class='edit-buttons-div' style="display: none")
+                                        button(class="saveButton delete-button" value=task.id) Permanently Delete
+                                        button(class="saveButton close-edit-buttons-div") ^      
+                else if allTasks
                     div.tasks
                         ol.ordered-list
                             each task in allTasks
@@ -88,6 +104,7 @@ block content
                                         li(class="task")=task.taskContent
                                         button(type="submit" class="saveButton open-edit") v
                                     div(class='edit-buttons-div' style="display: none")
-                                        button(class="saveButton delete-button" value=task.id) Delete
+                                        button(class="saveButton move-to-trash-button" value=task.id) Trash
                                         button(class="saveButton close-edit-buttons-div") ^
+                
 
