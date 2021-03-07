@@ -47,8 +47,9 @@ This application features a HTML, CSS frontend, rendered along with Pug.js, and 
 <details open="open">
    <summary>Screenshots</summary>
    <div style="display: flex">
-      <img src="./screenshots/remember-the-juice.png" width="50%" height="50%" style="margin: 5px"/>
-      <img src="./screenshots/remember-the-juice.gif" width="50%" height="50%"  style="margin: 5px"/>
+      <img src="./screenshots/remember-the-juice.png" width="70%" height="50%" style="margin: 5px"/>
+      <img src="./screenshots/remember-the-juice.gif" width="70%" height="50%"  style="margin: 5px"/>
+      <img src="./screenshots/remember-the-juice-crud.gif" width="70%" height="50%"  style="margin: 5px"/>
    <div>
 </details>
 <br />
@@ -64,7 +65,6 @@ This application features a HTML, CSS frontend, rendered along with Pug.js, and 
 | [CSS3](https://www.w3.org/Style/CSS/)                | [HTML5](https://en.wikipedia.org/wiki/HTML5) |
 | [PostgreSQL](https://www.postgresql.org/)            | [Sequelize](https://sequelize.org/)          |
 | [npm](https://www.npmjs.com/)                        | [Node.js](https://nodejs.org/en/)            |
-|                                                      |                                              |
 
 <br />
 <br />
