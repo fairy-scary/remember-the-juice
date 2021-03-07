@@ -1,13 +1,15 @@
 doctype html
-html(lang="en" prefix="og: http://ogp.me/ns#")
+html
   head
       block head
-        meta(charset="utf-8")
+        meta(name="title" content="Remember The Juice")
+        meta(name="description" content="Remember The Juice is a to-do list web app that allows users to manage their day-to-day lives.")
+
+        meta(property="og:type" content="website")
+        meta(property="og:url" content="http://remember-the-juice.herokuapp.com/")
         meta(property="og:title" content="Remember The Juice")
-        meta(name="image" property="og:image" content="./public/remember-the-juice.png")
-        meta(name="author" content="angelica wilson")
-        meta(property="og:description" content="Remember The Juice is a task app for people that don't have a lot to do.")
-        meta(property="og:url" content="https://remember-the-juice.herokuapp.com")
+        meta(property="og:description" content="Remember The Juice is a to-do list web app that allows users to manage their day-to-day lives.")
+        meta(property="og:image" content="/images/remember-the-juice-profile.png")
         
 
         title="Remember the Juice"
