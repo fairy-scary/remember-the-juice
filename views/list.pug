@@ -2,9 +2,10 @@ extends layout
 
 append head
   //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/strawberry.css" id="flavor")
   link(rel="stylesheet" href="/stylesheets/main.css")
   link(rel="stylesheet" href="/stylesheets/navbar.css")
-  link(rel="stylesheet" href=`/stylesheets/strawberry.css` id="flavor")
+
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
   script(src="/javascripts/manage-tasks.js" type="module" defer)
