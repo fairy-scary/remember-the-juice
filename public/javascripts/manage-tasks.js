@@ -59,14 +59,14 @@ window.addEventListener("load", (event) => {
 
                     editButtonsDiv.setAttribute('class', 'edit-buttons-div');
                     editButtonsDiv.style.display='none';
-                    deleteTaskButton.setAttribute('class', 'saveButton delete-button');
+                    deleteTaskButton.setAttribute('class', 'saveButton move-to-trash-button');
                     closeEditButtonsDiv.setAttribute('class', 'saveButton close-edit-buttons-div');
 
                     // SET VALUES AND INNER TEXT
                     newTask.innerHTML = data.task.taskContent;
                     openEditButton.innerText= 'v';
                     deleteTaskButton.value=data.task.id;
-                    deleteTaskButton.innerText= 'Delete';
+                    deleteTaskButton.innerText= 'Trash';
                     closeEditButtonsDiv.innerText= '^';
 
                     // APPEND
