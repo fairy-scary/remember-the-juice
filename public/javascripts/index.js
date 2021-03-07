@@ -23,10 +23,12 @@ export const editTaskMovement = () => {
 
 
 const themeInit = () => {
-    let linkRel = document.createElement('link');
+    let linkRel = document.getElementById('flavor');
     let logo = document.getElementById("logo")
-    linkRel.setAttribute('id', 'flavor');
-    linkRel.setAttribute('rel', 'stylesheet');
+    // linkRel.setAttribute('id', 'flavor');
+    // linkRel.setAttribute('rel', 'stylesheet');
+    
+    if(linkRel){
 
     if (localStorage.getItem('color') === 'green') {
         linkRel.setAttribute('href', '/stylesheets/apple.css')
@@ -50,8 +52,12 @@ const themeInit = () => {
 
     let head = document.head;
     head.append(linkRel);
+    }
 
 }
+
+themeInit();
+
 
 // const checkTheme = () => {
 //     localStorage.getItem('logo');
@@ -71,8 +77,9 @@ const themeInit = () => {
 //     }
 // }
 
-window.addEventListener("DOMContentLoaded", (event) => {
-    themeInit();
+window.addEventListener("load", (event) => {
+    // themeInit();
+    
     let demoLoginButton = document.getElementById('demo-button');
     let usernameField = document.getElementById('username-field');
     let passwordField = document.getElementById('password-field');
@@ -92,6 +99,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         passwordField.value = 'password';
     })};
 
+    if(apple){
     
     apple.addEventListener("click", () => {
         cssRef.setAttribute('href', '/stylesheets/apple.css')
@@ -132,6 +140,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         localStorage.setItem('color', 'strawberry');
         localStorage.setItem('logo', 'strawberry');
     });
+}
 
     editTaskMovement();
 

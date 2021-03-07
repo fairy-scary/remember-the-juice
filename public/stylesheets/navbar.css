@@ -1,46 +1,46 @@
-body{
-    margin: 0;
+body {
+  margin: 0;
 }
 
 .navbar {
-    background-color: #B83436;
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 250px 1fr 300px;
-    position: fixed;
-    height: 50px;
-    width: 100%;
+  /* background-color: #B83436; */
+  background-color: wheat;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 250px 1fr 300px;
+  position: fixed;
+  height: 50px;
+  width: 100%;
 }
 
 .navbar_hamburger {
-    width: 40px;
-    height: 40px;
-    margin: 5px;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
 }
 
 .search_glass {
-    margin: 2px 1px 5px 0px;
+  margin: 2px 1px 5px 0px;
 }
 
 .navbar_searchbar {
-    width: 400px;
-    height: 38px;
-    background-color: rgba(255, 255, 255, 0.3);
-    margin-top: 6px;
-    margin-left: 2px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-
+  width: 400px;
+  height: 38px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-top: 6px;
+  margin-left: 2px;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 .navbar_theme_wrapper {
-    width: 275px;
-    display: flex;
-    justify-content: space-around;
-    margin: 5px;
+  width: 275px;
+  display: flex;
+  justify-content: space-around;
+  margin: 5px;
 }
 
 .navbar_themes {
-    height: 40px;
-    width: 40px;
+  height: 40px;
+  width: 40px;
 }
