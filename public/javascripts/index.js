@@ -22,60 +22,42 @@ export const editTaskMovement = () => {
 };
 
 
-const themeInit = () => {
-    let linkRel = document.getElementById('flavor');
-    let logo = document.getElementById("logo")
-    // linkRel.setAttribute('id', 'flavor');
-    // linkRel.setAttribute('rel', 'stylesheet');
-    
-    if(linkRel){
-
-    if (localStorage.getItem('color') === 'green') {
-        linkRel.setAttribute('href', '/stylesheets/apple.css')
-        logo.setAttribute("src", "../images/apple-logo.png")
-    } else if (localStorage.getItem('color') === 'yellow') {
-        linkRel.setAttribute('href', '/stylesheets/lemon.css')
-        logo.setAttribute("src", "../images/lemon-logo.png")
-    } else if (localStorage.getItem('color') === 'orange') {
-        linkRel.setAttribute('href', '/stylesheets/orange.css')
-        logo.setAttribute("src", "../images/orange-logo.png")
-    } else if (localStorage.getItem('color') === 'grape') {
-        linkRel.setAttribute('href', '/stylesheets/grape.css')
-        logo.setAttribute("src", "../images/grape-logo.png")
-    } else if (localStorage.getItem('color') === 'strawberry') {
-        linkRel.setAttribute('href', '/stylesheets/strawberry.css')
-        logo.setAttribute("src", "../images/default-logo.png")
-    } else {
-        linkRel.setAttribute('href', '/stylesheets/strawberry.css')
-        logo.setAttribute("src", "../images/default-logo.png")
-    }
-
-    let head = document.head;
-    head.append(linkRel);
-    }
-
-}
-
-themeInit();
-
-
-// const checkTheme = () => {
-//     localStorage.getItem('logo');
-//     let cssRef = document.getElementById("flavor");
-//     let logo = document.getElementById("logo");
-
-//     // let linkRel = document.createElement('link');
+// const themeInit = () => {
+//     let linkRel = document.getElementById('flavor');
+//     let logo = document.getElementById("logo")
 //     // linkRel.setAttribute('id', 'flavor');
 //     // linkRel.setAttribute('rel', 'stylesheet');
-//     // let head = document.head
-//     // head.append(linkRel)
-//     // console.log(linkRel, 'yooo')
+    
+//     if(linkRel){
 
 //     if (localStorage.getItem('color') === 'green') {
-//         cssRef.setAttribute('href', '/stylesheets/apple.css')
+//         linkRel.setAttribute('href', '/stylesheets/apple.css')
 //         logo.setAttribute("src", "../images/apple-logo.png")
+//     } else if (localStorage.getItem('color') === 'yellow') {
+//         linkRel.setAttribute('href', '/stylesheets/lemon.css')
+//         logo.setAttribute("src", "../images/lemon-logo.png")
+//     } else if (localStorage.getItem('color') === 'orange') {
+//         linkRel.setAttribute('href', '/stylesheets/orange.css')
+//         logo.setAttribute("src", "../images/orange-logo.png")
+//     } else if (localStorage.getItem('color') === 'grape') {
+//         linkRel.setAttribute('href', '/stylesheets/grape.css')
+//         logo.setAttribute("src", "../images/grape-logo.png")
+//     } else if (localStorage.getItem('color') === 'strawberry') {
+//         linkRel.setAttribute('href', '/stylesheets/strawberry.css')
+//         logo.setAttribute("src", "../images/default-logo.png")
+//     } else {
+//         linkRel.setAttribute('href', '/stylesheets/strawberry.css')
+//         logo.setAttribute("src", "../images/default-logo.png")
 //     }
+
+//     let head = document.head;
+//     head.append(linkRel);
+//     }
+
 // }
+
+// themeInit();
+
 
 window.addEventListener("load", (event) => {
     // themeInit();
@@ -99,48 +81,48 @@ window.addEventListener("load", (event) => {
         passwordField.value = 'password';
     })};
 
-    if(apple){
+   
     
     apple.addEventListener("click", () => {
         cssRef.setAttribute('href', '/stylesheets/apple.css')
         logo.setAttribute("src", "../images/apple-logo.png")
-        localStorage.clear();
-        localStorage.setItem('color', 'green');
-        localStorage.setItem('logo', 'apple');
+        // localStorage.clear();
+        // localStorage.setItem('color', 'green');
+        // localStorage.setItem('logo', 'apple');
     });
 
     lemon.addEventListener("click", () => {
         cssRef.setAttribute('href', '/stylesheets/lemon.css')
         logo.setAttribute("src", "../images/lemon-logo.png")
-        localStorage.clear();
-        localStorage.setItem('color', 'yellow');
-        localStorage.setItem('logo', 'lemon');
+        // localStorage.clear();
+        // localStorage.setItem('color', 'yellow');
+        // localStorage.setItem('logo', 'lemon');
     });
 
     orange.addEventListener("click", () => {
         cssRef.setAttribute('href', '/stylesheets/orange.css')
         logo.setAttribute("src", "../images/orange-logo.png")
-        localStorage.clear();
-        localStorage.setItem('color', 'orange');
-        localStorage.setItem('logo', 'orange');
+        // localStorage.clear();
+        // localStorage.setItem('color', 'orange');
+        // localStorage.setItem('logo', 'orange');
     });
 
     grape.addEventListener("click", () => {
         cssRef.setAttribute('href', '/stylesheets/grape.css')
         logo.setAttribute("src", "../images/grape-logo.png")
-        localStorage.clear();
-        localStorage.setItem('color', 'grape');
-        localStorage.setItem('logo', 'grape');
+        // localStorage.clear();
+        // localStorage.setItem('color', 'grape');
+        // localStorage.setItem('logo', 'grape');
     });
 
     strawberry.addEventListener("click", () => {
         cssRef.setAttribute('href', '/stylesheets/strawberry.css')
         logo.setAttribute("src", "../images/default-logo.png")
-        localStorage.clear();
-        localStorage.setItem('color', 'strawberry');
-        localStorage.setItem('logo', 'strawberry');
+        // localStorage.clear();
+        // localStorage.setItem('color', 'strawberry');
+        // localStorage.setItem('logo', 'strawberry');
     });
-}
+
 
     editTaskMovement();
 
