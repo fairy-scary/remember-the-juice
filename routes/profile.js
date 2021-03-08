@@ -13,8 +13,7 @@ let fruit;
 router.post('/theme', asyncHandler(async(req, res) => {
   let {localStorageFruit} = req.body
   fruit = localStorageFruit;
-  console.log('this wjvhfuxgvhdufbhvudxfvudhfvjuhdfkjvckjvhkjgvbjkdfbvkjcfbvjfbdrgviugsriuvgsruvdfukvdufvdiufghviudgdbuhgbhfugbhdu!!!!!!')
-  return res.json(fruit)
+  res.json(fruit)
 }))
 
 

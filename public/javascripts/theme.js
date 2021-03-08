@@ -1,6 +1,7 @@
-const themeInit = () => {
-    if(localStorage.getItem('color')){
-        let localStorageFruit = localStorage.getItem('logo');
+
+export const themeInit = () => {
+    if(localStorage.getItem('fruit')){
+        let localStorageFruit = localStorage.getItem('fruit');
         fetch(`/profile/theme`, {
                     method: "POST",
                     headers: {
@@ -20,9 +21,9 @@ const themeInit = () => {
     })
 }}
 
-const themeInit2 = () => {
-    if(localStorage.getItem('color')){
-        let localStorageFruit = localStorage.getItem('logo');
+export const themeInit2 = () => {
+    if(localStorage.getItem('fruit')){
+        let localStorageFruit = localStorage.getItem('fruit');
        
 
         fetch(`/lists/theme`, {
