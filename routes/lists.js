@@ -7,6 +7,15 @@ const { requireAuth } = require('../auth');
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
 
+let fruit;
+
+router.post('/theme', asyncHandler(async(req, res) => {
+  let {localStorageFruit} = req.body
+  fruit = localStorageFruit;
+  console.log('this wjvhfuxgvhdufbhvudxfvudhfvjuhdfkjvckjvhkjgvbjkdfbvkjcfbvjfbdrgviugsriuvgsruvdfukvdufvdiufghviudgdbuhgbhfugbhdu!!!!!!')
+  res.json(fruit)
+}))
+
 // Creates and saves a new list
 router.post('/', requireAuth, asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId;
@@ -56,9 +65,9 @@ router.get(`/:userListId(\\d+)`, requireAuth, asyncHandler(async (req, res) => {
   if(currentListName.listName === 'Trash'){
     let trash = currentListName;
     let allTrashTasks = allTasks;
-    res.render('list', { lists, allTrashTasks, allTasks, user, trashList, trash });
+    res.render('list', { lists, allTrashTasks, allTasks, user, trashList, trash, fruit });
   } else {
-    res.render('list', { lists, allTasks, user, trashList, currentListName });
+    res.render('list', { lists, allTasks, user, trashList, currentListName, fruit });
   }
 
 }));

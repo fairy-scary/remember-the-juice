@@ -8,6 +8,15 @@ const { requireAuth } = require('../auth');
 
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
+let fruit;
+
+router.post('/theme', asyncHandler(async(req, res) => {
+  let {localStorageFruit} = req.body
+  fruit = localStorageFruit;
+  console.log('this wjvhfuxgvhdufbhvudxfvudhfvjuhdfkjvckjvhkjgvbjkdfbvkjcfbvjfbdrgviugsriuvgsruvdfukvdufvdiufghviudgdbuhgbhfugbhdu!!!!!!')
+  return res.json(fruit)
+}))
+
 
 // User profile page after login. Displays all lists left menu and all tasks.
 router.get(`/`, requireAuth, asyncHandler(async (req, res) => {
@@ -20,7 +29,7 @@ router.get(`/`, requireAuth, asyncHandler(async (req, res) => {
   // GET ALL TASKS EXCEPT TASKS IN TRASH TO DISPLAY IN MAIN AREA
   const allTasks = await db.Task.findAll({ where: { userId, userListId: {[op.not]: trashListId} } });
 
-  res.render('main', { user, lists, allTasks, userId, trashList })
+  res.render('main', { user, lists, allTasks, userId, trashList, fruit })
 }));
 
 

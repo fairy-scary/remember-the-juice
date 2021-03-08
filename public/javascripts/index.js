@@ -82,7 +82,7 @@ window.addEventListener("load", (event) => {
     })};
 
    
-    
+    if(apple){
     apple.addEventListener("click", () => {
         cssRef.setAttribute('href', '/stylesheets/apple.css')
         logo.setAttribute("src", "../images/apple-logo.png")
@@ -122,6 +122,7 @@ window.addEventListener("load", (event) => {
         // localStorage.setItem('color', 'strawberry');
         // localStorage.setItem('logo', 'strawberry');
     });
+}
 
 
     editTaskMovement();
