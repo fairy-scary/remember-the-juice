@@ -26,7 +26,7 @@ router.post('/create', requireAuth, asyncHandler(async (req, res) => {
     res.json({task, allTasksInCurrentList})
 }));
 
-// PERMANENTLY DELETE A TASK
+// PERMANENTLY DELETE A TASK -- USED ON TRASH PAGE
 router.delete('/delete', requireAuth, asyncHandler(async (req, res) => {
   
     const userId = req.session.auth.userId;

@@ -32,7 +32,6 @@ router.post('/', requireAuth, asyncHandler(async (req, res) => {
   
 
 // Delete a list
-
 router.delete('/delete', requireAuth, asyncHandler(async (req, res) => {
     
     const userId = req.session.auth.userId;
@@ -42,6 +41,19 @@ router.delete('/delete', requireAuth, asyncHandler(async (req, res) => {
     let tasks = await db.Task.findAll({ where: { userListId, userId } });
     await db.Task.destroy({ where: { userId, userListId } });
     await db.UserList.destroy({ where: { id: userListId, userId } });
+    res.json({list, tasks})
+}));
+
+// DELETE ALL TASKS IN A LIST -- USED FOR TRASH LIST
+router.delete('/trash/delete', requireAuth, asyncHandler(async (req, res) => {
+    
+    const userId = req.session.auth.userId;
+    const { userListId } = req.body;
+
+    let list = await db.UserList.findOne({ where: { id: userListId, userId } });
+    let tasks = await db.Task.findAll({ where: { userListId, userId } });
+    await db.Task.destroy({ where: { userId, userListId } });
+    // await db.UserList.destroy({ where: { id: userListId, userId } });
     res.json({list, tasks})
 }));
 

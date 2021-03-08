@@ -1,5 +1,5 @@
 
-// DELETE TASKS USING AJAX, UPDATE DOM UPON DELETE
+// PERMANENT DELETE TASKS USING AJAX, UPDATE DOM UPON DELETE
 export const deleteTaskFunction = (deleteTaskButtons) => {
     if(deleteTaskButtons){
         deleteTaskButtons = document.querySelectorAll('.delete-button');
@@ -50,9 +50,57 @@ export const deleteTaskFunction = (deleteTaskButtons) => {
     };
 };
 
+
+
+// PERMANENT DELETE ALL ITEMS IN TRASH USING AJAX, UPDATE DOM UPON DELETE
+export const deleteAllFunction = (deleteAllButton) => {
+    if(deleteAllButton){
+        let tasksDivs = document.querySelectorAll('.task-div');
+        let editTasksDivs = document.querySelectorAll('.edit-buttons-div');
+      
+        
+        deleteAllButton.addEventListener('click', () => {
+            let allTotalTasks = document.querySelector('.tasks_incomplete');
+            let sum = document.querySelector('.sum');
+
+            fetch(`/lists/trash/delete`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                    userListId: deleteAllButton.id
+                    })
+                })
+                .then(function(res) {
+                    if (!res.ok) {
+                        throw Error(res.statusText); // handle any potential server errors
+                    }
+                    return res.json();
+                })
+                .then(function(data) {
+                    sum.innerText = 0;
+                    
+                    tasksDivs.forEach(taskDiv => {
+                        taskDiv.remove();
+                    })
+
+                    editTasksDivs.forEach(editTaskDiv => {
+                        editTaskDiv.remove();
+                    })
+                })
+                .catch(function(error) {
+                    console.log(error)
+                });
+            })
+    };
+};
+
 window.addEventListener("load", (event) => {
     let deleteTaskButtons = document.querySelectorAll('.delete-button');
+    let deleteAllButton = document.querySelector('.delete-all-button');
 
     deleteTaskFunction(deleteTaskButtons);
+    deleteAllFunction(deleteAllButton);
 
 });
