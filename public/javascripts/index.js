@@ -89,7 +89,7 @@ window.addEventListener("load", (event) => {
 
     strawberry.addEventListener("click", () => {
         cssRef.setAttribute('href', '/stylesheets/strawberry.css')
-        logo.setAttribute("src", "../images/default-logo.png")
+        logo.setAttribute("src", "../images/strawberry-logo.png")
         localStorage.clear();
         localStorage.setItem('fruit', 'strawberry');
         themeInit()
