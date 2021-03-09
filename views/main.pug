@@ -69,7 +69,7 @@ block content
                         else 
                             p(class='tasks_incomplete') Total Tasks In All
             div.main_right_bottombox
-                //- form(action=`/tasks` method="post")
+                //- form(action=`/tasks` method="post") 
                 //-     input(type="text" name="taskContent" placeholder="ADD TASK HERE ..." class="add_task_form")
                 //-     select(name="listName" class="dropdown")
                 //-         each listName in lists
@@ -95,5 +95,5 @@ block content
                                         li(class="task")=task.taskContent
                                         button(type="submit" class="saveButton open-edit") v
                                     div(class='edit-buttons-div' style="display: none")
-                                        button(class="saveButton " value=task.id) Delete
+                                        button(class="saveButton move-to-trash-button" value=task.id) Trash
                                         button(class="saveButton close-edit-buttons-div") ^
