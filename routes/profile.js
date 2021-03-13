@@ -8,7 +8,7 @@ const { requireAuth } = require('../auth');
 
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
-let fruit;
+let fruit='strawberry';
 
 router.post('/theme', asyncHandler(async(req, res) => {
   let {localStorageFruit} = req.body

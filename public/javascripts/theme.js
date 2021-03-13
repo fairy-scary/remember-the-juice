@@ -2,7 +2,7 @@
 export const themeInit = () => {
     let localStorageFruit;
 
-    if(localStorage.getItem('fruit')) {
+    if(localStorage.getItem('fruit') !== 'undefined') {
         localStorageFruit = localStorage.getItem('fruit');
     } else {
         localStorageFruit = 'strawberry';
@@ -30,7 +30,7 @@ export const themeInit = () => {
 export const themeInit2 = () => {
     let localStorageFruit;
 
-    if(localStorage.getItem('fruit')) {
+    if(localStorage.getItem('fruit') !== 'undefined') {
         localStorageFruit = localStorage.getItem('fruit');
     } else {
         localStorageFruit = 'strawberry';

@@ -7,7 +7,7 @@ const { requireAuth } = require('../auth');
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
 
-let fruit;
+let fruit = 'strawberry';
 
 router.post('/theme', asyncHandler(async(req, res) => {
   let {localStorageFruit} = req.body
@@ -24,7 +24,8 @@ router.post('/', requireAuth, asyncHandler(async (req, res) => {
     if(listName){
       const newList = await db.UserList.build({ listName, userId });
       await newList.save()
-      res.redirect('/profile')
+      
+      res.redirect(`/lists/${newList.id}`)
     } else {
       res.redirect('/profile')
     }
