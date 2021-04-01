@@ -12,7 +12,9 @@ let fruit='strawberry';
 
 router.post('/theme', asyncHandler(async(req, res) => {
   let {localStorageFruit} = req.body
-  fruit = localStorageFruit;
+  if(localStorageFruit !== null){
+    fruit = localStorageFruit;
+  }
   res.json(fruit)
 }))
 
@@ -27,6 +29,7 @@ router.get(`/`, requireAuth, asyncHandler(async (req, res) => {
 
   // GET ALL TASKS EXCEPT TASKS IN TRASH TO DISPLAY IN MAIN AREA
   const allTasks = await db.Task.findAll({ where: { userId, userListId: {[op.not]: trashListId} } });
+
 
   res.render('main', { user, lists, allTasks, userId, trashList, fruit })
 }));
