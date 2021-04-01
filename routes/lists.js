@@ -11,7 +11,9 @@ let fruit = 'strawberry';
 
 router.post('/theme', asyncHandler(async(req, res) => {
   let {localStorageFruit} = req.body
-  fruit = localStorageFruit;
+  if(localStorageFruit !== null){
+    fruit = localStorageFruit;
+  }
   res.json(fruit)
 }))
 
