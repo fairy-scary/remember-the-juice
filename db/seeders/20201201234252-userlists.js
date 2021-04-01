@@ -7,7 +7,14 @@ module.exports = {
       userId: 1,
       createdAt: new Date(),
       updatedAt: new Date()
-    }])
+    },
+    {
+      listName: 'Trash',
+      userId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date()
+  }
+  ])
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
